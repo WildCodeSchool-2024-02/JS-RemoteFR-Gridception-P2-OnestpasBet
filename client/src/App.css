@@ -1,9 +1,11 @@
 body {
+  display:flex;
+  justify-content: center;
   font-family: "Lato", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.7;
-  color: #eee;
+  color: black;
   margin: 0;
 }
 
@@ -162,4 +164,12 @@ footer {
       0 0 98px #ff0000;
     color: #fff;
   }
+}
+
+.verstappen {
+  background-color: red;
+  border-radius: 10%;
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
 }
