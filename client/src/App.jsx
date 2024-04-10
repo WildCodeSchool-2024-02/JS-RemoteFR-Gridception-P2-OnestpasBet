@@ -12,7 +12,7 @@ function App() {
       .then((results) => {
         setDatas(results.data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
   }, []);
 
   return (
