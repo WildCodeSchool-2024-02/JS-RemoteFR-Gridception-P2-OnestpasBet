@@ -1,46 +1,39 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-
 import "./App.css";
+import Home from "./components/menu-burger/home/Home";
+import Account from "./components/menu-burger/account/Account";
+import Theme from "./components/menu-burger/theme/Theme";
+import Credit from "./components/menu-burger/credit/Credit";
+import Logo from "./components/logo/Logo"
+import UserCard from "./components/usercard/Usercard";
+import Carrousel from "./components/carrousel/Carrousel";
+import MainPage from "./components/main-page/MainPage";
+import Footer from "./components/footer/Footer";
 
 function App() {
-  const [datas, setDatas] = useState({});
-
-  useEffect(() => {
-    axios
-      .get("https://api.openf1.org/v1/drivers")
-      .then((results) => {
-        setDatas(results.data);
-      })
-      .catch((err) => console.error(err));
-  }, []);
 
   return (
     <>
-    <div className="verstappen">
-      <img src={datas && datas[0]?.headshot_url} alt="Headshot" />
-      <p>{datas && datas[0]?.full_name}</p>
-      <p>{datas && datas[0]?.team_name}</p>
-      </div>
-      
-      <div className="Sargeant">
-      <img src={datas && datas[1]?.headshot_url} alt="Headshot" />
-      <p>{datas && datas[1]?.full_name}</p>
-      <p>{datas && datas[1]?.team_name}</p>
-    </div>
+<header>
+  <nav>
+    "Menu Burger:
+    <Home />
+    <Account/>
+    <Theme />
+    <Credit />
+    <Logo />
+    <UserCard />
+  </nav>
+  
+</header>
 
-     <div className="hamilton">
-      <img src={datas && datas[13]?.headshot_url} alt="headshot" />
-      <p>{datas && datas[13]?.full_name}</p>
-      <p>{datas && datas[13]?.team_name}</p>
-      </div>
+<main>
+  <Carrousel />
+  <MainPage />
+</main>
 
-    <div className="Gasly">
-      <img src={datas && datas[3]?.headshot_url} alt="Headshot" />
-      <p>{datas && datas[3]?.full_name}</p>
-      <p>{datas && datas[3]?.team_name}</p>
-    </div>
-
+<footer>
+  <Footer />
+</footer>
     </>
   );
 }
