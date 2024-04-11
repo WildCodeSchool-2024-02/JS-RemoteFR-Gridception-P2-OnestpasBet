@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
+
+/* body {
+  background: url("https://img.goodfon.com/original/1920x1080/a/5d/race-car-mercedes-benz-formula-1-sport.jpg");
+} */
+
+.main-window {
+  border: 1rem solid white;
+  border-radius: 50px;
+  background: linear-gradient(to bottom, #6a534e, #f9f9f9);
+  border: 7px solid black;
+}
+
+.verstappenname {
+  -webkit-text-stroke: 1px rgb(255, 255, 255);
+  font-weight: bolder;
+}
+
+.pilotsPicture {
+  height: 250px;
+  width: 250px;
+  background-color: white;
+  border-radius: 50%;
+  border: 3px solid black;
+  margin: 10rem;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  font-family: "Luckiest Guy";
+  font-size: 5rem;
+}

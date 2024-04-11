@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "./mainPageStyle.css"
+import "./mainPageStyle.css";
 
 function MainPage() {
   const [datas, setDatas] = useState({});
@@ -15,32 +15,17 @@ function MainPage() {
   }, []);
 
   return (
-    <>
-    <div className="verstappen">
-      <img src={datas && datas[0]?.headshot_url} alt="Headshot" />
-      <p>{datas && datas[0]?.full_name}</p>
-      <p>{datas && datas[0]?.team_name}</p>
+    <div className="main-window">
+      <img
+        src={datas && datas[0]?.headshot_url}
+        className="pilotsPicture"
+        alt="PilotsPicture"
+      />
+      <div className="verstappenname">
+        <h1>{datas && datas[0]?.full_name}</h1>
       </div>
-      
-      <div className="sargeant">
-      <img src={datas && datas[1]?.headshot_url} alt="Headshot" />
-      <p>{datas && datas[1]?.full_name}</p>
-      <p>{datas && datas[1]?.team_name}</p>
+      <h2>{datas && datas[0]?.team_name}</h2>
     </div>
-
-     <div className="hamilton">
-      <img src={datas && datas[13]?.headshot_url} alt="headshot" />
-      <p>{datas && datas[13]?.full_name}</p>
-      <p>{datas && datas[13]?.team_name}</p>
-      </div>
-
-    <div className="Gasly">
-      <img src={datas && datas[3]?.headshot_url} alt="Headshot" />
-      <p>{datas && datas[3]?.full_name}</p>
-      <p>{datas && datas[3]?.team_name}</p>
-    </div>
-
-    </>
   );
 }
 

@@ -1,7 +1,5 @@
-function Account () {
-    return (
-        "hello section Account"
-    );
+function Account() {
+  return "hello section Account";
 }
 
 export default Account;
