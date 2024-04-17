@@ -4,14 +4,26 @@ import "./mainPageStyle.css";
 import Parier from "./Pop-ups/PARIER/Parier";
 
 function MainPage() {
-  const [datas, setDatas] = useState({});
+  const [datasPilots, setDatasPilots] = useState({});
+  const [datasMeetings, setDatasMeetings] = useState({});
   const [showPopup, setShowPopup] = useState(false);
 
+  // INFO PILOTES API //
   useEffect(() => {
     axios
       .get("https://api.openf1.org/v1/drivers")
       .then((results) => {
-        setDatas(results.data);
+        setDatasPilots(results.data);
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
+  // INFO GRAND PRIX API //
+  useEffect(() => {
+    axios
+      .get("https://api.openf1.org/v1/meetings")
+      .then((results) => {
+        setDatasMeetings(results.data);
       })
       .catch((err) => console.error(err));
   }, []);
@@ -25,25 +37,29 @@ function MainPage() {
     <>
       <div className="main-window">
         <img
-          src={datas && datas[0]?.headshot_url}
+          src={datasPilots && datasPilots[0]?.headshot_url}
           className="pilot-picture"
           alt="PilotPicture"
         />
         <div className="pilot-name">
-          <h1>{datas && datas[0]?.full_name}</h1>
+          <h1>{datasPilots && datasPilots[0]?.full_name}</h1>
         </div>
-        <h2 className="infopilote">
+        <h2 className="inforace">
+          📍 {datasMeetings && datasMeetings[4]?.meeting_name} <br />
           LAPS 2/14 <br />
           Position 5/20 <br />
           weather : 🌧️
         </h2>
-        <div className="chooseButtons">
-          <button type="button" className="buttonYes">
-            OUI
-          </button>
-          <button type="button" className="buttonNo">
-            NON
-          </button>
+        <h3>VA T'IL REMPORTER LA COURSE?</h3>
+        <div className="info-cote">
+          <div className="info-yes">
+            <h4>OUI</h4>
+            <p>Côte à 10</p>
+          </div>
+          <div className="info-no">
+            <h4>NON</h4>
+            <p>Côte à 20</p>
+          </div>
         </div>
         {/* Bouton pour ouvrir le pop-up */}
         <button type="button" className="buttonBet" onClick={togglePopup}>

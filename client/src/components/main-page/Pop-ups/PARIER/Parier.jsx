@@ -1,6 +1,6 @@
-import  { useState } from 'react';
-import PropTypes from 'prop-types';
-import './parier.css';
+import { useState } from "react";
+import PropTypes from "prop-types";
+import "./parier.css";
 
 // Définir les pilotes initiaux
 const initialPilots = [

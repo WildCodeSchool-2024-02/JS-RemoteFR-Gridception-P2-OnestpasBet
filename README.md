@@ -91,3 +91,6 @@ Then, go on your specific project and run  `docker compose logs -t -f`.
 ### Command for debug prettier
 
 npx prettier . --write
+
+git restore --staged docker-compose.yml
+git restore --staged .github/workflows/remove.yml

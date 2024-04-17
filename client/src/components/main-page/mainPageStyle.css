@@ -15,7 +15,7 @@ body {
   margin: 0 0 0 7rem;
   border: 7px solid black;
   width: 40rem;
-  height: 40rem;
+  height: 42rem;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
@@ -67,7 +67,16 @@ h1 {
   font-size: 4rem;
 }
 
-.infopilote {
+h3 {
+  -webkit-text-stroke: 1px rgb(255, 255, 255);
+  font-weight: bolder;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 2.5rem;
+  position: relative;
+  bottom: 80px;
+}
+
+.inforace {
   font-family: "Luckiest Guy";
   position: relative;
   bottom: 40px;
@@ -76,47 +85,31 @@ h1 {
   font-size: 2rem;
 }
 
+.info-cote {
+  display: flex;
+  justify-content: space-around;
+  color: black;
+  width: 41rem;
+  position: relative;
+  bottom: 115px;
+  border-radius: 0% 0% 20% 20%;
+}
+
+.info-yes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.info-no {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
 /* BOUTONS */
-
-.buttonYes {
-  background-color: #2f8221;
-  color: white;
-  font-size: 3rem;
-  width: 15rem;
-  height: 4rem;
-  border-radius: 50px;
-  position: relative;
-  bottom: 2.5rem;
-  right: 1.5rem;
-  font-family: "Luckiest Guy";
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-  -webkit-text-stroke: 1.5px rgb(0, 0, 0);
-}
-
-:hover.buttonYes {
-  transform: scale(1.2);
-  cursor: pointer;
-}
-
-.buttonNo {
-  background-color: #ef1616;
-  color: white;
-  font-size: 3rem;
-  width: 15rem;
-  height: 4rem;
-  border-radius: 50px;
-  position: relative;
-  bottom: 2.5rem;
-  left: 1.5rem;
-  font-family: "Luckiest Guy";
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-  -webkit-text-stroke: 1.5px rgb(0, 0, 0);
-}
-
-:hover.buttonNo {
-  transform: scale(1.2);
-  cursor: pointer;
-}
 
 .buttonBet {
   background-color: red;
@@ -127,7 +120,7 @@ h1 {
   border-radius: 20%;
   border: 0.5rem solid black;
   position: relative;
-  bottom: 2rem;
+  bottom: 8rem;
   font-family: "Luckiest guy";
 }
 
@@ -165,4 +158,8 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+h4 {
+  margin: 0;
 }
