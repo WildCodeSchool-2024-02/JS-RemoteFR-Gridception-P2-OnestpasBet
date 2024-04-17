@@ -5,8 +5,10 @@ import Parier from "./Pop-ups/PARIER/Parier";
 import UserCard from "../usercard/Usercard";
 
 function MainPage() {
-  const [datasPilots, setDatasPilots] = useState({});
-  const [datasMeetings, setDatasMeetings] = useState({});
+  const [datasPilots, setDatasPilots] = useState({}); // API INFOS PILOTES //
+  const [datasMeetings, setDatasMeetings] = useState({}); // API GRAND PRIX
+  const [datasLaps, setDatasLaps] = useState({}); // API GRAND PRIX
+  const [datasPositions, setDatasPositions] = useState({}); // API GRAND PRIX
   const [showPopup, setShowPopup] = useState(false);
   const [coins, setCoins] = useState(100);
   const [nextClaimTime, setNextClaimTime] = useState(null);
@@ -14,7 +16,7 @@ function MainPage() {
   const updateCoins = (amount) => {
     setCoins(coins + amount);
   };
-
+  // API INFOS PILOTES //
   useEffect(() => {
     axios
       .get("https://api.openf1.org/v1/drivers")
@@ -22,11 +24,27 @@ function MainPage() {
         setDatasPilots(results.data);
       })
       .catch((err) => console.error(err));
-
+    // API INFOS GRAND PRIX //
     axios
-      .get("https://api.openf1.org/v1/meetings")
+      .get("https://api.openf1.org/v1/meetings?year=2024")
       .then((results) => {
         setDatasMeetings(results.data);
+      })
+      .catch((err) => console.error(err));
+    // API INFOS LAPS //
+    axios
+      .get("https://api.openf1.org/v1/laps?meeting_key=latest&driver_number=1")
+      .then((results) => {
+        setDatasLaps(results.data);
+      })
+      .catch((err) => console.error(err));
+    // API INFOS POSITION //
+    axios
+      .get(
+        "https://api.openf1.org/v1/position?meeting_key=latest&driver_number=1"
+      )
+      .then((results) => {
+        setDatasPositions(results.data);
       })
       .catch((err) => console.error(err));
 
@@ -95,13 +113,14 @@ function MainPage() {
           alt="PilotPicture"
         />
         <div className="pilot-name">
-          <h1>{datasPilots && datasPilots[0]?.full_name}</h1>
+          <h1>{datasPilots && datasPilots[0]?.full_name} </h1>
         </div>
         <h2 className="inforace">
-          📍 {datasMeetings && datasMeetings[4]?.meeting_name} <br />
-          LAPS 2/14 <br />
-          Position 5/20 <br />
-          weather : 🌧️
+          📍 {datasMeetings && datasMeetings[3]?.meeting_name} <br />
+          🏁 TOUR: {datasLaps && datasLaps[17]?.lap_number} / 53 ⏱️ TIME:{" "}
+          {datasLaps && datasLaps[17]?.lap_duration} <br />⚡ VITESSE MAX:{" "}
+          {datasLaps && datasLaps[18]?.st_speed} Km/h <br />
+          🚩 Position {datasPositions && datasPositions[17]?.position}/20
         </h2>
         <h3>VA T'IL REMPORTER LA COURSE?</h3>
         <div className="info-cote">

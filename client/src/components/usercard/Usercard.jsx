@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./userCardStyle.css";
 import PropTypes from "prop-types";
+// import { sha256 } from "js-sha256";
 
 function UserCard({ coins }) {
   const [user, setUser] = useState("USER");
@@ -13,9 +14,10 @@ function UserCard({ coins }) {
       setComputerId(storedComputerId);
     } else {
       const newComputerId = Date.now() % 100;
-      localStorage.setItem("computerId", newComputerId);
+      const hashedComputerId = newComputerId.toString(); // ajouter ici hash
+      localStorage.setItem("computerId", hashedComputerId);
       setUser(`Guest${newComputerId}`);
-      setComputerId(newComputerId);
+      setComputerId(hashedComputerId);
     }
   }, []);
 
