@@ -163,3 +163,12 @@ h3 {
 h4 {
   margin: 0;
 }
+
+.buttonClaim {
+  background-color: black;
+  color: white;
+  font-family: "Luckiest Guy";
+  font-size: 3rem;
+  border-radius: 10px;
+  border: solid 1px white;
+}

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import "./mainPageStyle.css";
 import Parier from "./Pop-ups/PARIER/Parier";
@@ -9,12 +9,12 @@ function MainPage() {
   const [datasMeetings, setDatasMeetings] = useState({});
   const [showPopup, setShowPopup] = useState(false);
   const [coins, setCoins] = useState(100);
+  const [nextClaimTime, setNextClaimTime] = useState(null);
 
   const updateCoins = (amount) => {
     setCoins(coins + amount);
   };
 
-  // INFO PILOTES API //
   useEffect(() => {
     axios
       .get("https://api.openf1.org/v1/drivers")
@@ -22,21 +22,67 @@ function MainPage() {
         setDatasPilots(results.data);
       })
       .catch((err) => console.error(err));
-  }, []);
 
-  // INFO GRAND PRIX API //
-  useEffect(() => {
     axios
       .get("https://api.openf1.org/v1/meetings")
       .then((results) => {
         setDatasMeetings(results.data);
       })
       .catch((err) => console.error(err));
+
+    const lastClaimTime = localStorage.getItem("lastClaimTime");
+    if (lastClaimTime) {
+      const twentyFourHours = 24 * 60 * 60 * 1000; // 24 heures en millisecondes
+      const nextClaimTimeValue = parseInt(lastClaimTime, 10) + twentyFourHours;
+      setNextClaimTime(nextClaimTimeValue);
+    }
   }, []);
 
-  // Fonction pour ouvrir/fermer le pop-up
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (nextClaimTime !== null) {
+        const currentTime = new Date().getTime();
+        const timeRemaining = nextClaimTime - currentTime;
+        if (timeRemaining <= 0) {
+          setNextClaimTime(null);
+        } else {
+          setNextClaimTime(nextClaimTime);
+        }
+      }
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [nextClaimTime]);
+
+  const handleClaim = () => {
+    const currentTime = new Date().getTime();
+    const twentyFourHours = 24 * 60 * 60 * 1000;
+    const nextClaimTimeValue = currentTime + twentyFourHours;
+
+    updateCoins(200);
+    localStorage.setItem("lastClaimTime", currentTime.toString());
+    setNextClaimTime(nextClaimTimeValue);
+  };
+
   const togglePopup = () => {
     setShowPopup(!showPopup);
+  };
+
+  const formatTimeRemaining = () => {
+    if (!nextClaimTime) return "00:00:00";
+
+    const currentTime = new Date().getTime();
+    const timeRemaining = nextClaimTime - currentTime;
+
+    const hours = Math.floor(
+      (timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutes = Math.floor(
+      (timeRemaining % (1000 * 60 * 60)) / (1000 * 60)
+    );
+    const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+    return `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
   };
 
   return (
@@ -71,6 +117,17 @@ function MainPage() {
         {/* Bouton pour ouvrir le pop-up */}
         <button type="button" className="buttonBet" onClick={togglePopup}>
           PARIER
+        </button>
+        {/* Bouton "Claim" avec minuteur */}
+        <button
+          type="button"
+          className="buttonClaim"
+          onClick={handleClaim}
+          disabled={nextClaimTime !== null}
+        >
+          {nextClaimTime !== null
+            ? `Claim dans ${formatTimeRemaining()}`
+            : "Claim 200 Coins"}
         </button>
       </div>
 
