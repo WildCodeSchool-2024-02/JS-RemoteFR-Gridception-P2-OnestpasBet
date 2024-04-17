@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import "./userCardStyle.css";
+import PropTypes from "prop-types";
 
-function UserCard() {
+function UserCard({ coins }) {
   const [user, setUser] = useState("USER");
   const [computerId, setComputerId] = useState(null);
 
@@ -34,9 +35,13 @@ function UserCard() {
       </div>
       <p className="nomuser">{user}</p>
       <p>Computer ID: {computerId}</p>
-      <p>Coins: {}</p>
+      <p>Coins: {coins}</p>
     </div>
   );
 }
+
+UserCard.propTypes = {
+  coins: PropTypes.number.isRequired,
+};
 
 export default UserCard;
