@@ -34,7 +34,7 @@ function UserCard() {
       </div>
       <p className="nomuser">{user}</p>
       <p>Computer ID: {computerId}</p>
-      <p>Coins</p>
+      <p>Coins: {}</p>
     </div>
   );
 }

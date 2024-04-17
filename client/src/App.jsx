@@ -1,8 +1,5 @@
 import "./App.css";
-import Home from "./components/menu-burger/home/Home";
-import Account from "./components/menu-burger/account/Account";
-import Theme from "./components/menu-burger/theme/Theme";
-import Credit from "./components/menu-burger/credit/Credit";
+import Burger from "./components/menu-burger/Burger";
 import Logo from "./components/logo/Logo";
 import UserCard from "./components/usercard/Usercard";
 import Carrousel from "./components/carrousel/Carrousel";
@@ -13,15 +10,9 @@ function App() {
   return (
     <>
       <header>
-        <nav>
-          "Menu Burger:
-          <Home />
-          <Account />
-          <Theme />
-          <Credit />
-          <Logo />
-          <UserCard />
-        </nav>
+        <Burger />
+        <Logo />
+        <UserCard />
       </header>
 
       <main>

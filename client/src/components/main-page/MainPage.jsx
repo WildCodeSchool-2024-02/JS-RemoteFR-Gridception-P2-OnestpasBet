@@ -2,11 +2,17 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./mainPageStyle.css";
 import Parier from "./Pop-ups/PARIER/Parier";
+import UserCard from "../usercard/Usercard";
 
 function MainPage() {
   const [datasPilots, setDatasPilots] = useState({});
   const [datasMeetings, setDatasMeetings] = useState({});
   const [showPopup, setShowPopup] = useState(false);
+  const [coins, setCoins] = useState(100);
+
+  const updateCoins = (amount) => {
+    setCoins(coins + amount);
+  };
 
   // INFO PILOTES API //
   useEffect(() => {
@@ -35,6 +41,7 @@ function MainPage() {
 
   return (
     <>
+      <UserCard coins={coins} updateCoins={updateCoins} />
       <div className="main-window">
         <img
           src={datasPilots && datasPilots[0]?.headshot_url}

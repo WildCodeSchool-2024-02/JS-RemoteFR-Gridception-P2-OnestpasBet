@@ -44,14 +44,14 @@ body {
   font-size: 2.3rem;
   font-weight: bolder;
   position: relative;
-  bottom: 41.5rem;
+  bottom: 44.5rem;
   left: 9rem;
   font-family: "Luckiest Guy";
 }
 
 .stars {
   position: relative;
-  bottom: 51rem;
+  bottom: 54rem;
   left: 42.5rem;
 }
 
@@ -99,14 +99,14 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .info-no {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 /* BOUTONS */
