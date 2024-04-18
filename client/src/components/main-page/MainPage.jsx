@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./mainPageStyle.css";
-import Parier from "./Pop-ups/PARIER/Parier";
 import UserCard from "../usercard/Usercard";
+import Bet from "./Pop-ups/Button-Bet/Betbutton";
 
 function MainPage() {
   const [datasPilots, setDatasPilots] = useState({}); // API INFOS PILOTES //
@@ -33,7 +33,7 @@ function MainPage() {
       .catch((err) => console.error(err));
     // API INFOS LAPS //
     axios
-      .get("https://api.openf1.org/v1/laps?meeting_key=latest&driver_number=1")
+      .get("https://api.openf1.org/v1/laps?meeting_key=latest&driver_number=1") // Pour Verstapp
       .then((results) => {
         setDatasLaps(results.data);
       })
@@ -41,7 +41,7 @@ function MainPage() {
     // API INFOS POSITION //
     axios
       .get(
-        "https://api.openf1.org/v1/position?meeting_key=latest&driver_number=1"
+        "https://api.openf1.org/v1/position?meeting_key=latest&driver_number=1" // Pour Verstapp
       )
       .then((results) => {
         setDatasPositions(results.data);
@@ -157,7 +157,7 @@ function MainPage() {
       {showPopup && (
         <div className="popup-overlay">
           <div className="popup">
-            <Parier />
+            <Bet />
             {/* Bouton pour fermer le pop-up */}
             <button type="button" onClick={togglePopup} className="closebutton">
               Fermer

@@ -1,5 +1,5 @@
 import "./App.css";
-import Burger from "./components/menu-burger/Burger";
+import Burger from "./components/burger/Burger";
 import Logo from "./components/logo/Logo";
 import UserCard from "./components/usercard/Usercard";
 import Carrousel from "./components/carrousel/Carrousel";

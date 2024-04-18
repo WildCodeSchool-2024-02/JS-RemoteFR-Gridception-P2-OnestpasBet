@@ -1,6 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import "./parier.css";
+import "./betbuttonstyle.css";
 
 // Définir les pilotes initiaux
 const initialPilots = [
@@ -166,8 +166,8 @@ Footer.propTypes = {
 };
 
 // Composant principal exporté
-function Parier() {
+function Bet() {
   return <App />;
 }
 
-export default Parier;
+export default Bet;
