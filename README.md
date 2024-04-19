@@ -1,3 +1,5 @@
+This is the branch of Nico
+
 # .
 
 This project uses Harmonia. Harmonia is a framework meant to serve as a foundation for every project following the React-Express-MySQL stack, as learned in Wild Code School.
@@ -85,3 +87,14 @@ To add it during deployment, follow these 2 steps:
 
 If you want to access the logs of your online projet (to follow the deployement or to watch any bug error), connect to your VPS (`ssh user@host`).
 Then, go on your specific project and run  `docker compose logs -t -f`.
+
+### Command for debug prettier
+
+Commande à faire avant de commit !
+
+npx prettier . --write
+git add .
+git restore --staged docker-compose.yml
+git restore --staged .github/workflows/remove.yml
+git restore --staged package.json
+git restore --staged docker-compose.yml .github/workflows/remove.yml package.json

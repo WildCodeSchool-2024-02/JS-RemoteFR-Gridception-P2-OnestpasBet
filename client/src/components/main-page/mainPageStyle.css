@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
+
+body {
+  background: url("https://images8.alphacoders.com/121/1215681.jpg");
+  background-size: cover;
+  font-family: "Luckiest Guy";
+}
+
+/* AFFICHAGE PRINCIPAL */
+
+.main-window {
+  border: 1rem solid white;
+  border-radius: 50px;
+  background: linear-gradient(to bottom, #6a534e, #f9f9f9);
+  margin: 0 0 0 7rem;
+  border: 7px solid black;
+  width: 40rem;
+  height: 42rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.pilot-name {
+  -webkit-text-stroke: 1px rgb(255, 255, 255);
+  font-weight: bolder;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.pilot-picture {
+  height: 150px;
+  width: 150px;
+  background-color: white;
+  border-radius: 50%;
+  border: 3px solid black;
+  margin: 20px;
+}
+
+.hot {
+  color: #d7630f;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 2.3rem;
+  font-weight: bolder;
+  position: relative;
+  bottom: 44.5rem;
+  left: 9rem;
+  font-family: "Luckiest Guy";
+}
+
+.stars {
+  position: relative;
+  bottom: 54rem;
+  left: 42.5rem;
+}
+
+.graystars {
+  position: relative;
+  bottom: 60rem;
+  left: 36rem;
+  width: 20rem;
+}
+
+:hover.stars {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+:hover.graystars {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  font-family: "Luckiest Guy";
+  font-size: 4rem;
+}
+
+h3 {
+  -webkit-text-stroke: 1px rgb(255, 255, 255);
+  font-weight: bolder;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 2.5rem;
+  position: relative;
+  bottom: 80px;
+}
+
+.inforace {
+  font-family: "Luckiest Guy";
+  position: relative;
+  bottom: 40px;
+  left: 18px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  font-size: 2rem;
+}
+
+.info-cote {
+  display: flex;
+  justify-content: space-around;
+  color: black;
+  width: 41rem;
+  position: relative;
+  bottom: 115px;
+  border-radius: 0% 0% 20% 20%;
+}
+
+.info-yes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.3rem;
+}
+
+.info-no {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.3rem;
+}
+
+/* BOUTONS */
+
+.buttonBet {
+  background-color: red;
+  color: white;
+  font-size: 4rem;
+  height: 8rem;
+  width: 18rem;
+  border-radius: 20%;
+  border: 0.5rem solid black;
+  position: relative;
+  bottom: 8rem;
+  font-family: "Luckiest guy";
+}
+
+:hover.buttonBet {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.popup {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  max-width: 80%;
+  text-align: center;
+}
+
+.popup button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h4 {
+  margin: 0;
+}
+
+.buttonClaim {
+  background-color: black;
+  color: white;
+  font-family: "Luckiest Guy";
+  font-size: 3rem;
+  border-radius: 10px;
+  border: solid 1px white;
+}
