@@ -1,8 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import "./betbuttonstyle.css";
+import "./button-betStyle.css";
 
-// Définir les pilotes initiaux
 const initialPilots = [
   {
     name: "OUI",
@@ -18,7 +17,6 @@ const initialPilots = [
   },
 ];
 
-// Composant Pilot
 function Pilot({ name, odds, amount, onBetChange }) {
   return (
     <div className="pilot-card">
@@ -29,7 +27,6 @@ function Pilot({ name, odds, amount, onBetChange }) {
   );
 }
 
-// Déclaration des propTypes pour le composant Pilot
 Pilot.propTypes = {
   name: PropTypes.string.isRequired,
   odds: PropTypes.number.isRequired,
@@ -37,7 +34,6 @@ Pilot.propTypes = {
   onBetChange: PropTypes.func.isRequired,
 };
 
-// Composant Counter
 function Counter({ amount, onChange }) {
   const [inputValue, setInputValue] = useState("");
 
@@ -72,15 +68,15 @@ function Counter({ amount, onChange }) {
   );
 }
 
-// Déclaration des propTypes pour le composant Counter
 Counter.propTypes = {
   amount: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
-// Composant App
 function App() {
   const [pilots, setPilots] = useState(initialPilots);
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  const [coinBalance] = useState(100); // Solde initial en pièces
 
   function handleBetChange(index, amount) {
     const updatedPilots = pilots.map((pilot, idx) => {
@@ -89,8 +85,14 @@ function App() {
       }
       return pilot;
     });
-
     setPilots(updatedPilots);
+  }
+
+  function handleBetConfirmation() {
+    setShowConfirmation(true);
+    setTimeout(() => {
+      setShowConfirmation(false);
+    }, 3000); // Masquer le popup après 3 secondes
   }
 
   return (
@@ -107,13 +109,22 @@ function App() {
           />
         ))}
       </div>
-      <Footer pilots={pilots} />
+      <Footer
+        pilots={pilots}
+        onBetConfirmation={(event) => handleBetConfirmation(event)}
+        coinBalance={coinBalance}
+      />
+      {showConfirmation && (
+        <div className="bet-confirmation">Votre pari a été validé !</div>
+      )}
+      <div className="coin-balance">
+        Pièces en possession : {coinBalance} 💰
+      </div>
     </div>
   );
 }
 
-// Composant Footer
-function Footer({ pilots }) {
+function Footer({ pilots, onBetConfirmation }) {
   function calcProfit() {
     const profitArray = pilots.map((pilot) => pilot.odds * pilot.amount);
     const highestReturn = Math.max(...profitArray);
@@ -145,7 +156,7 @@ function Footer({ pilots }) {
           <div>Total Mise:</div>
           <div className="total">{totalBet} 💰</div>
         </div>
-        <button type="button" className="popupbet">
+        <button type="button" className="popupbet" onClick={onBetConfirmation}>
           PARIER
         </button>
       </div>
@@ -153,7 +164,6 @@ function Footer({ pilots }) {
   );
 }
 
-// Déclaration des propTypes pour le composant Footer
 Footer.propTypes = {
   pilots: PropTypes.arrayOf(
     PropTypes.shape({
@@ -163,9 +173,9 @@ Footer.propTypes = {
       id: PropTypes.number.isRequired,
     })
   ).isRequired,
+  onBetConfirmation: PropTypes.func.isRequired,
 };
 
-// Composant principal exporté
 function Bet() {
   return <App />;
 }

@@ -55,7 +55,19 @@ body {
   left: 42.5rem;
 }
 
+.graystars {
+  position: relative;
+  bottom: 60rem;
+  left: 36rem;
+  width: 20rem;
+}
+
 :hover.stars {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+:hover.graystars {
   transform: scale(1.2);
   cursor: pointer;
 }

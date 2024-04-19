@@ -1,7 +1,7 @@
 import "./carrouselStyle.css";
 
 function Carrousel() {
-  return "hi";
+  return "";
 }
 
 export default Carrousel;

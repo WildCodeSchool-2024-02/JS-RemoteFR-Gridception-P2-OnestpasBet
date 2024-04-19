@@ -6,7 +6,6 @@ import Theme from "./theme/Theme";
 function Burger() {
   return (
     <div>
-      <h1>Hello j'aimerais ETRE UN DEV</h1>
       <Home />
       <Account />
       <Theme />

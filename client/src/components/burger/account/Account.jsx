@@ -1,5 +1,5 @@
 function Account() {
-  return "hello section Account";
+  return "";
 }
 
 export default Account;

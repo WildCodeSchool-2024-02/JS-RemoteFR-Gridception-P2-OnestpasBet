@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import "./userCardStyle.css";
 import PropTypes from "prop-types";
+import "./userCardStyle.css";
 // import { sha256 } from "js-sha256";
 
-function UserCard({ coins }) {
+function UserCard({ coinbalance }) {
   const [user, setUser] = useState("USER");
   const [computerId, setComputerId] = useState(null);
 
@@ -37,13 +37,13 @@ function UserCard({ coins }) {
       </div>
       <p className="nomuser">{user}</p>
       <p>Computer ID: {computerId}</p>
-      <p>Coins: {coins}</p>
+      <p>Coins: {coinbalance}</p>
     </div>
   );
 }
 
 UserCard.propTypes = {
-  coins: PropTypes.number.isRequired,
+  coinbalance: PropTypes.number.isRequired,
 };
 
 export default UserCard;

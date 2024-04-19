@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./mainPageStyle.css";
-import UserCard from "../usercard/Usercard";
-import Bet from "./Pop-ups/Button-Bet/Betbutton";
+import Bet from "./Pop-ups/Button-Bet/Button-bet";
 
 function MainPage() {
   const [datasPilots, setDatasPilots] = useState({}); // API INFOS PILOTES //
@@ -10,11 +9,11 @@ function MainPage() {
   const [datasLaps, setDatasLaps] = useState({}); // API GRAND PRIX
   const [datasPositions, setDatasPositions] = useState({}); // API GRAND PRIX
   const [showPopup, setShowPopup] = useState(false);
-  const [coins, setCoins] = useState(100);
+  const [coinbalance, setCoins] = useState(100);
   const [nextClaimTime, setNextClaimTime] = useState(null);
 
   const updateCoins = (amount) => {
-    setCoins(coins + amount);
+    setCoins(coinbalance + amount);
   };
   // API INFOS PILOTES //
   useEffect(() => {
@@ -103,9 +102,14 @@ function MainPage() {
     return `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
   };
 
+  const [favorite, setFavorite] = useState(false);
+
+  const toggleFavorite = () => {
+    setFavorite(!favorite);
+  };
+
   return (
     <>
-      <UserCard coins={coins} updateCoins={updateCoins} />
       <div className="main-window">
         <img
           src={datasPilots && datasPilots[0]?.headshot_url}
@@ -126,11 +130,11 @@ function MainPage() {
         <div className="info-cote">
           <div className="info-yes">
             <h4>OUI</h4>
-            <p>Côte à 10</p>
+            <p>Côte à 2,40</p>
           </div>
           <div className="info-no">
             <h4>NON</h4>
-            <p>Côte à 20</p>
+            <p>Côte à 5</p>
           </div>
         </div>
         {/* Bouton pour ouvrir le pop-up */}
@@ -145,19 +149,46 @@ function MainPage() {
           disabled={nextClaimTime !== null}
         >
           {nextClaimTime !== null
-            ? `Claim dans ${formatTimeRemaining()}`
-            : "Claim 200 Coins"}
+            ? `Prochain Coins dans: ${formatTimeRemaining()}`
+            : "Obtenir 200 Coins"}
         </button>
       </div>
 
       {/* Éléments supplémentaires */}
       <h3 className="hot">🔥HOT</h3>
-      <img src="./src/assets/images/star.png" alt="étoile" className="stars" />
-
+      <div>
+        <span
+          className="favorite-icon"
+          onClick={toggleFavorite}
+          role="button"
+          tabIndex={0}
+          aria-label={favorite ? "Retirer des favoris" : "Ajouter aux favoris"}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              toggleFavorite();
+            }
+          }}
+        >
+          {favorite ? (
+            <img
+              src="./src/assets/images/star.png"
+              className="stars"
+              alt="stars"
+            />
+          ) : (
+            <img
+              src="./src/assets/images/graystar.png"
+              className="graystars"
+              alt="Graystar"
+            />
+          )}
+        </span>
+      </div>
       {showPopup && (
         <div className="popup-overlay">
           <div className="popup">
             <Bet />
+
             {/* Bouton pour fermer le pop-up */}
             <button type="button" onClick={togglePopup} className="closebutton">
               Fermer

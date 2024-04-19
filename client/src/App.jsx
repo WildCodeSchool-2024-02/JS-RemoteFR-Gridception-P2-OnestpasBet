@@ -4,7 +4,6 @@ import Logo from "./components/logo/Logo";
 import UserCard from "./components/usercard/Usercard";
 import Carrousel from "./components/carrousel/Carrousel";
 import MainPage from "./components/main-page/MainPage";
-import Footer from "./components/footer/Footer";
 
 function App() {
   return (
@@ -19,10 +18,6 @@ function App() {
         <Carrousel />
         <MainPage />
       </main>
-
-      <footer>
-        <Footer />
-      </footer>
     </>
   );
 }

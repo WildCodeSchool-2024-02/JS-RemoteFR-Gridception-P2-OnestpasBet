@@ -96,3 +96,5 @@ npx prettier . --write
 git add .
 git restore --staged docker-compose.yml
 git restore --staged .github/workflows/remove.yml
+git restore --staged package.json
+git restore --staged docker-compose.yml .github/workflows/remove.yml package.json
