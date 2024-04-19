@@ -1,4 +1,4 @@
 function Home() {
-  return <>"Welcome back at home!"</>;
+  return "";
 }
 export default Home;

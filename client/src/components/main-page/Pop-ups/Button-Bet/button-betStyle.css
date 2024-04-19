@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
+
+.container {
+  max-width: 800px;
+  max-height: 550px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  position: relative;
+}
+
+.titlepop {
+  margin: 0;
+  text-align: center;
+  color: #333;
+}
+
+.bet-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.pilot-card {
+  width: 200px;
+  padding: 10px;
+  margin: 10px;
+  background-color: #333;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.odds {
+  font-size: 14px;
+  color: white;
+  margin-bottom: 10px;
+  z-index: 99;
+}
+
+.betting {
+  text-align: center;
+}
+
+.choice {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.popupbet,
+.up,
+.down,
+.closebutton,
+.montantbutton {
+  padding: 8px 16px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: "Luckiest Guy";
+  font-size: 20px;
+}
+
+.popupbet {
+  position: relative;
+  top: -25px;
+}
+
+.up {
+  background-color: #4caf50;
+  color: white;
+}
+
+.down {
+  background-color: #f44336;
+  color: white;
+}
+
+.amount {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.submit {
+  margin-top: 0px;
+  padding-top: 0px;
+  border-top: 1px solid #ddd;
+  text-align: center;
+}
+
+.logo {
+  margin-bottom: 10px;
+}
+
+.popup {
+  z-index: 9999;
+}
+
+.logo p {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.options {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.options > div {
+  text-align: center;
+}
+
+.total,
+.max {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.popupbet:hover {
+  background-color: #0056b3;
+}
+
+.up:hover {
+  background-color: #0056b3;
+}
+
+.down:hover {
+  background-color: #0056b3;
+}
+
+.closebutton:hover {
+  background-color: #0056b3;
+}
+
+.montantbutton:hover {
+  background-color: #0056b3;
+}

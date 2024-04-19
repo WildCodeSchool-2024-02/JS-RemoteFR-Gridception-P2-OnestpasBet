@@ -1,7 +1,7 @@
 import "./creditStyle.css";
 
 function Credit() {
-  return <p>"Crédit part"</p>;
+  return "";
 }
 
 export default Credit;
