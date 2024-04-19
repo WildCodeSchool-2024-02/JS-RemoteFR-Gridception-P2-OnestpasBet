@@ -1,5 +1,5 @@
 function Theme() {
-  return "Bonjour je change les thèmes!";
+  return "";
 }
 
 export default Theme;
