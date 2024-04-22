@@ -8,7 +8,6 @@ function Burger() {
         src="./src/assets/images/main-logo.png"
         alt="logo"
         className="logo-item"
-        width="300 px"
       />
       <a id="home" className="menu-item" href="/">
         Accueil
