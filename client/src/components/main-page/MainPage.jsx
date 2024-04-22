@@ -136,11 +136,11 @@ function MainPage() {
         <div className="info-cote">
           <div className="info-yes">
             <h4>OUI</h4>
-            <p>Côte à 2,40</p>
+            <h4>Côte: 10</h4>
           </div>
           <div className="info-no">
             <h4>NON</h4>
-            <p>Côte à 5</p>
+            <h4>Côte: 20</h4>
           </div>
         </div>
         {/* Bouton pour ouvrir le pop-up */}

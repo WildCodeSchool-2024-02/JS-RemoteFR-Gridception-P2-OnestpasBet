@@ -12,6 +12,7 @@ function Burger() {
           alt="logo"
           className="logo-item"
         />
+        <hr />
         <Link to="/" className="menu-item">
           Accueil
         </Link>
