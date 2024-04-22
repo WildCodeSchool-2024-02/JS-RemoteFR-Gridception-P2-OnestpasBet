@@ -42,11 +42,11 @@
 /* General sidebar styles */
 .bm-menu {
   background: black;
-  padding: 1em 1em;
+  padding: 1em 2em;
   font-size: 2.5em;
 }
 
-a {
+a.menu-item {
   display: flex;
   justify-content: center;
   color: white;
@@ -54,7 +54,7 @@ a {
   text-decoration: none;
 }
 
-.bm-item.logo-item {
+.logo-item {
   display: flex;
   justify-content: center;
   max-width: 100%;
