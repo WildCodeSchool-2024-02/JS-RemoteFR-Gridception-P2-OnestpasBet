@@ -1,16 +1,32 @@
-import Home from "./home/Home";
-import Account from "./account/Account";
-import Credit from "./credit/Credit";
-import Theme from "./theme/Theme";
+import { slide as Menu } from "react-burger-menu";
+import { Link } from "react-router-dom";
+
+import "./burgerStyle.css";
 
 function Burger() {
   return (
-    <div>
-      <Home />
-      <Account />
-      <Theme />
-      <Credit />
-    </div>
+    <Menu>
+      <>
+        <img
+          src="./src/assets/images/main-logo.png"
+          alt="logo"
+          className="logo-item"
+        />
+        <hr />
+        <Link to="/" className="menu-item">
+          Accueil
+        </Link>
+        <Link to="/account" className="menu-item">
+          Mon compte
+        </Link>
+        <Link to="/theme" className="menu-item">
+          Thèmes
+        </Link>
+        <Link to="/credit" className="menu-item">
+          Crédit
+        </Link>
+      </>
+    </Menu>
   );
 }
 

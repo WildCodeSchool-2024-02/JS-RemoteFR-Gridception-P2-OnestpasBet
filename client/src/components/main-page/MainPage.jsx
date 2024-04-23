@@ -23,21 +23,27 @@ function MainPage() {
         setDatasPilots(results.data);
       })
       .catch((err) => console.error(err));
-    // API INFOS GRAND PRIX //
+  });
+  // API INFOS GRAND PRIX //
+  useEffect(() => {
     axios
-      .get("https://api.openf1.org/v1/meetings?year=2024")
+      .get("https://api.openf1.org/v1/meetings?year=2024&meeting_key=latest")
       .then((results) => {
         setDatasMeetings(results.data);
       })
       .catch((err) => console.error(err));
-    // API INFOS LAPS //
+  });
+  // API INFOS LAPS //
+  useEffect(() => {
     axios
       .get("https://api.openf1.org/v1/laps?meeting_key=latest&driver_number=1") // Pour Verstapp
       .then((results) => {
         setDatasLaps(results.data);
       })
       .catch((err) => console.error(err));
-    // API INFOS POSITION //
+  });
+  // API INFOS POSITION //
+  useEffect(() => {
     axios
       .get(
         "https://api.openf1.org/v1/position?meeting_key=latest&driver_number=1" // Pour Verstapp
@@ -120,7 +126,7 @@ function MainPage() {
           <h1>{datasPilots && datasPilots[0]?.full_name} </h1>
         </div>
         <h2 className="inforace">
-          📍 {datasMeetings && datasMeetings[3]?.meeting_name} <br />
+          📍 {datasMeetings && datasMeetings[0]?.meeting_name} <br />
           🏁 TOUR: {datasLaps && datasLaps[17]?.lap_number} / 53 ⏱️ TIME:{" "}
           {datasLaps && datasLaps[17]?.lap_duration} <br />⚡ VITESSE MAX:{" "}
           {datasLaps && datasLaps[18]?.st_speed} Km/h <br />
@@ -130,11 +136,11 @@ function MainPage() {
         <div className="info-cote">
           <div className="info-yes">
             <h4>OUI</h4>
-            <p>Côte à 2,40</p>
+            <h4>Côte: 10</h4>
           </div>
           <div className="info-no">
             <h4>NON</h4>
-            <p>Côte à 5</p>
+            <h4>Côte: 20</h4>
           </div>
         </div>
         {/* Bouton pour ouvrir le pop-up */}
