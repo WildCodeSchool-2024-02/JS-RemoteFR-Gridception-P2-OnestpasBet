@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import Credit from "./components/burger/credit/Credit";
 import Account from "./components/burger/account/Account";
+import Theme from "./components/burger/theme/Theme";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/account",
     element: <Account />,
+  },
+  {
+    path: "/theme",
+    element: <Theme />,
   },
 ]);
 
