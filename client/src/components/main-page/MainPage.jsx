@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./mainPageStyle.css";
@@ -21,6 +22,11 @@ function MainPage({ coinBalance, setCoinBalance }) {
   const [datasPositions, setDatasPositions] = useState({});
   const [showPopup, setShowPopup] = useState(false);
   const [nextClaimTime, setNextClaimTime] = useState(null);
+
+  MainPage.propTypes = {
+    coinBalance: PropTypes.number.isRequired,
+    setCoinBalance: PropTypes.func.isRequired,
+  };
 
   const updateCoins = (amount) => {
     setCoinBalance((prevBalance) => prevBalance + amount);
@@ -150,11 +156,11 @@ function MainPage({ coinBalance, setCoinBalance }) {
             <h4>Côte: 20</h4>
           </div>
         </div>
-        {/* Bouton pour ouvrir le pop-up */}
+
         <button type="button" className="buttonBet" onClick={togglePopup}>
           PARIER
         </button>
-        {/* Bouton "Claim" avec minuteur */}
+
         <button
           type="button"
           className="buttonClaim"
@@ -165,7 +171,7 @@ function MainPage({ coinBalance, setCoinBalance }) {
             ? `Prochain Coins dans: ${formatTimeRemaining()}`
             : "Obtenir 200 Coins"}
         </button>
-        {/* Bouton "50 Coins" */}
+
         <button
           type="button"
           className="buttonAddCoins"
@@ -175,10 +181,8 @@ function MainPage({ coinBalance, setCoinBalance }) {
         </button>
       </div>
 
-      {/* Éléments supplémentaires */}
       <h3 className="hot">🔥HOT</h3>
       <div>
-        {/* Images pour les favoris */}
         <span
           className="favorite-icon"
           onClick={toggleFavorite}
@@ -191,7 +195,6 @@ function MainPage({ coinBalance, setCoinBalance }) {
             }
           }}
         >
-          {/* Utilisation conditionnelle de l'image */}
           <img
             src={
               favorite
@@ -206,12 +209,11 @@ function MainPage({ coinBalance, setCoinBalance }) {
       {showPopup && (
         <div className="popup-overlay">
           <div className="popup">
-            {/* Bouton pour fermer le pop-up */}
             <button type="button" onClick={togglePopup} className="closebutton">
               Fermer
             </button>
           </div>
-          {/* Passer coinBalance à UserCard */}
+
           <UserCard coinBalance={coinBalance} />
           <MainButton
             coinBalance={coinBalance}

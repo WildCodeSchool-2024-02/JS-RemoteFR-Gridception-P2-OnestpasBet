@@ -23,12 +23,10 @@ function MainButton({ coinBalance, setCoinBalance }) {
   const [pilots, setPilots] = useState(initialPilots);
   const [showConfirmation, setShowConfirmation] = useState(false);
 
-  // Fonction pour calculer le montant total des paris
   function calcBet() {
     return pilots.reduce((total, pilot) => total + pilot.amount, 0);
   }
 
-  // Gérer le changement de montant du pari
   function handleBetChange(index, amount) {
     const updatedPilots = pilots.map((pilot, idx) =>
       idx === index ? { ...pilot, amount } : pilot
@@ -36,7 +34,6 @@ function MainButton({ coinBalance, setCoinBalance }) {
     setPilots(updatedPilots);
   }
 
-  // Gérer la confirmation du pari
   function handleBetConfirmation() {
     const totalBet = calcBet();
     if (totalBet <= coinBalance) {
@@ -71,7 +68,6 @@ function MainButton({ coinBalance, setCoinBalance }) {
         calcBet={calcBet}
       />
 
-      {/* Afficher la confirmation du pari */}
       {showConfirmation && (
         <div className="bet-confirmation">Votre pari a été validé !</div>
       )}

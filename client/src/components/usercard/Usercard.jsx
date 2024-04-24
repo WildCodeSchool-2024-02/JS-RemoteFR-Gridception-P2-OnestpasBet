@@ -7,7 +7,6 @@ import "./userCardStyle.css";
 function UserCard({ coinBalance }) {
   const [user, setUser] = useState("USER");
   const [computerId, setComputerId] = useState(null);
-  // Solde initial en pièces
 
   useEffect(() => {
     const storedComputerId = localStorage.getItem("computerId");
@@ -16,7 +15,7 @@ function UserCard({ coinBalance }) {
       setComputerId(storedComputerId);
     } else {
       const newComputerId = Date.now() % 100;
-      const hashedComputerId = newComputerId.toString(); // ajouter ici hash
+      const hashedComputerId = newComputerId.toString();
       localStorage.setItem("computerId", hashedComputerId);
       setUser(`Guest${newComputerId}`);
       setComputerId(hashedComputerId);
