@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import PropTypes from "prop-types";
 import Pilot from "./Pilot";
 import Footer from "./Footer";
@@ -23,18 +23,14 @@ function MainButton({ coinBalance, setCoinBalance }) {
   const [pilots, setPilots] = useState(initialPilots);
   const [showConfirmation, setShowConfirmation] = useState(false);
 
-  function calcBet() {
-    return pilots.reduce((total, pilot) => total + pilot.amount, 0);
-  }
+  // Calcul du montant total des paris
+  const calcBet = useCallback(
+    () => pilots.reduce((total, pilot) => total + pilot.amount, 0),
+    [pilots]
+  );
 
-  function handleBetChange(index, amount) {
-    const updatedPilots = pilots.map((pilot, idx) =>
-      idx === index ? { ...pilot, amount } : pilot
-    );
-    setPilots(updatedPilots);
-  }
-
-  function handleBetConfirmation() {
+  // Gestion de la confirmation du pari
+  const handleBetConfirmation = useCallback(() => {
     const totalBet = calcBet();
     if (totalBet <= coinBalance) {
       setCoinBalance(coinBalance - totalBet);
@@ -43,7 +39,18 @@ function MainButton({ coinBalance, setCoinBalance }) {
         setShowConfirmation(false);
       }, 3000);
     }
-  }
+  }, [coinBalance, calcBet, setCoinBalance]);
+
+  // Gestion du changement de montant du pari
+  const handleBetChange = useCallback(
+    (index, amount) => {
+      const updatedPilots = pilots.map((pilot, idx) =>
+        idx === index ? { ...pilot, amount } : pilot
+      );
+      setPilots(updatedPilots);
+    },
+    [pilots, setPilots]
+  );
 
   return (
     <div className="container">
@@ -62,9 +69,7 @@ function MainButton({ coinBalance, setCoinBalance }) {
 
       <Footer
         pilots={pilots}
-        // eslint-disable-next-line react/jsx-no-bind
         onBetConfirmation={handleBetConfirmation}
-        // eslint-disable-next-line react/jsx-no-bind
         calcBet={calcBet}
       />
 
