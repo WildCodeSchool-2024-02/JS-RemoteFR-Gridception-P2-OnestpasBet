@@ -6,13 +6,16 @@ function Credit() {
     <>
       <Burger />
       <div className="credit">
-        <h1>Bienvenue sur la page Crédit ! </h1>
-        <h2>VOICI L'EQUIPE ON EST PAS BET</h2>
+        <h1>L'EQUIPE OnestpasBET</h1>
       </div>
-      <img src="./src/assets/images/hamilton.png" alt="photohamilton" />
-      <h3>HAMILTON</h3>
-      <img src="./src/assets/images/leclerc.png" alt="photoleclerc" />
-      <h3>LECLERC</h3>
+      <img src="./src/assets/images/Nicolas.png" alt="photohamilton" />
+      <h3>Nicolas</h3>
+      <img src="./src/assets/images/Quentin.png" alt="photoleclerc" />
+      <h3>Quentin</h3>
+      <img src="./src/assets/images/Angelina.png" alt="photoleclerc" />
+      <h3>Angélina</h3>
+      <img src="./src/assets/images/Hamid.png" alt="photoleclerc" />
+      <h3>Hamid</h3>
     </>
   );
 }
