@@ -1,5 +1,7 @@
+import Burger from "../Burger";
+
 function Theme() {
-  return "";
+  return <Burger />;
 }
 
 export default Theme;

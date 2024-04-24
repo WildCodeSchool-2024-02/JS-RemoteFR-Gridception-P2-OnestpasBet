@@ -98,3 +98,8 @@ git restore --staged docker-compose.yml
 git restore --staged .github/workflows/remove.yml
 git restore --staged package.json
 git restore --staged docker-compose.yml .github/workflows/remove.yml package.json
+
+npm install react-burger-menu --save
+npm install react-router-dom
+
+=> Si erreur avec react-burger-menu => cd client => npm i -S react-burger-menu

@@ -1,7 +1,12 @@
 function Logo() {
   return (
     <>
-      <img src="./src/assets/images/main-logo.png" alt="logomain" />;
+      <img
+        className="main-logo"
+        src="./src/assets/images/main-logo.png"
+        alt="logomain"
+      />
+      ;
     </>
   );
 }
