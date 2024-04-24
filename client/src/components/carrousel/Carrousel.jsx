@@ -1,6 +1,8 @@
 import "./carrouselStyle.css";
 import axios from "axios";
 import { useCallback, useState, useEffect } from "react";
+import flecheGauche from "../../assets/images/flecheGauche.png";
+import flecheDroite from "../../assets/images/flecheDroite.png";
 
 function Carrousel() {
   const [images, setImages] = useState([]);
@@ -40,13 +42,23 @@ function Carrousel() {
 
   return (
     <div className="carrousel">
-      <button type="button" onClick={handleClickPrevious}>
-        Précédent
-      </button>
-      <img src={images[currentIndex]} alt="Pilote1" />
-      <button type="button" onClick={handleClickNext}>
-        Suivant
-      </button>
+      <div className="carrousel-block">
+        <div className="carrousel-pilots">
+          <p>Pilotes 2024</p>
+          <img src={images[currentIndex]} alt="Pilote1" />
+        </div>
+
+        <div className="carrousel-button left">
+          <button type="button" onClick={handleClickPrevious}>
+            <img src={flecheGauche} alt="précèdent" />
+          </button>
+        </div>
+        <div className="carrousel-button right">
+          <button type="button" onClick={handleClickNext}>
+            <img src={flecheDroite} alt="suivant" />
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

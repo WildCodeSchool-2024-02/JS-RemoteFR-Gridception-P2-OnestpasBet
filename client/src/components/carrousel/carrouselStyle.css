@@ -1,5 +1,47 @@
 .carrousel {
-  padding: 15px;
+  display: flex;
+  justify-items: center;
+  position: relative;
+  min-height: 200px;
+  background-image: url("../../assets/images/BG-tv-carrousel.png");
+  background-size: 420px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.carrousel-block {
   display: flex;
   justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+.carrousel-pilots {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -105px;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  display: flex;
+}
+
+.carrousel-button {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -90px;
+}
+
+.carrousel-button.left {
+  transform: translateX(-120%) translateX(-50%);
+}
+
+.carrousel-button.right {
+  transform: translateX(-50%) translateX(120%);
 }
