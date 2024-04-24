@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Burger from "./components/burger/Burger";
 import Logo from "./components/logo/Logo";
 import UserCard from "./components/usercard/Usercard";
