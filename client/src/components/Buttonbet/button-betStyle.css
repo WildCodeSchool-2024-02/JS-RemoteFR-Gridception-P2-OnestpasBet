@@ -151,3 +151,7 @@
 .montantbutton:hover {
   background-color: #0056b3;
 }
+
+.coinbalance {
+  color: rgb(0, 0, 0);
+}

@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import "./userCardStyle.css";
+
 // import { sha256 } from "js-sha256";
 
-function UserCard({ coinbalance }) {
+function UserCard({ coinBalance }) {
   const [user, setUser] = useState("USER");
   const [computerId, setComputerId] = useState(null);
+  // Solde initial en pièces
 
   useEffect(() => {
     const storedComputerId = localStorage.getItem("computerId");
@@ -37,13 +39,13 @@ function UserCard({ coinbalance }) {
       </div>
       <p className="nomuser">{user}</p>
       <p>Computer ID: {computerId}</p>
-      <p>Coins: {coinbalance}</p>
+      <p>Coins: {coinBalance}</p>
     </div>
   );
 }
 
 UserCard.propTypes = {
-  coinbalance: PropTypes.number.isRequired,
+  coinBalance: PropTypes.number.isRequired,
 };
 
 export default UserCard;

@@ -1,21 +1,31 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./mainPageStyle.css";
-import Bet from "./Pop-ups/Button-Bet/Button-bet";
+import MainButton from "../Buttonbet/mainbutton";
+import UserCard from "../usercard/Usercard";
 
-function MainPage() {
-  const [datasPilots, setDatasPilots] = useState({}); // API INFOS PILOTES //
-  const [datasMeetings, setDatasMeetings] = useState({}); // API GRAND PRIX
-  const [datasLaps, setDatasLaps] = useState({}); // API GRAND PRIX
-  const [datasPositions, setDatasPositions] = useState({}); // API GRAND PRIX
+function useFavorite(initialState = false) {
+  const [favorite, setFavorite] = useState(initialState);
+
+  const toggleFavorite = () => {
+    setFavorite((prevFavorite) => !prevFavorite);
+  };
+
+  return { favorite, toggleFavorite };
+}
+
+function MainPage({ coinBalance, setCoinBalance }) {
+  const [datasPilots, setDatasPilots] = useState({});
+  const [datasMeetings, setDatasMeetings] = useState({});
+  const [datasLaps, setDatasLaps] = useState({});
+  const [datasPositions, setDatasPositions] = useState({});
   const [showPopup, setShowPopup] = useState(false);
-  const [coinbalance, setCoins] = useState(100);
   const [nextClaimTime, setNextClaimTime] = useState(null);
 
   const updateCoins = (amount) => {
-    setCoins(coinbalance + amount);
+    setCoinBalance((prevBalance) => prevBalance + amount);
   };
-  // API INFOS PILOTES //
+
   useEffect(() => {
     axios
       .get("https://api.openf1.org/v1/drivers")
@@ -23,30 +33,24 @@ function MainPage() {
         setDatasPilots(results.data);
       })
       .catch((err) => console.error(err));
-  });
-  // API INFOS GRAND PRIX //
-  useEffect(() => {
+
     axios
       .get("https://api.openf1.org/v1/meetings?year=2024&meeting_key=latest")
       .then((results) => {
         setDatasMeetings(results.data);
       })
       .catch((err) => console.error(err));
-  });
-  // API INFOS LAPS //
-  useEffect(() => {
+
     axios
-      .get("https://api.openf1.org/v1/laps?meeting_key=latest&driver_number=1") // Pour Verstapp
+      .get("https://api.openf1.org/v1/laps?meeting_key=latest&driver_number=1")
       .then((results) => {
         setDatasLaps(results.data);
       })
       .catch((err) => console.error(err));
-  });
-  // API INFOS POSITION //
-  useEffect(() => {
+
     axios
       .get(
-        "https://api.openf1.org/v1/position?meeting_key=latest&driver_number=1" // Pour Verstapp
+        "https://api.openf1.org/v1/position?meeting_key=latest&driver_number=1"
       )
       .then((results) => {
         setDatasPositions(results.data);
@@ -91,6 +95,11 @@ function MainPage() {
     setShowPopup(!showPopup);
   };
 
+  const handleAddCoins = () => {
+    // Fonction pour ajouter 50 pièces
+    updateCoins(50);
+  };
+
   const formatTimeRemaining = () => {
     if (!nextClaimTime) return "00:00:00";
 
@@ -105,14 +114,12 @@ function MainPage() {
     );
     const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
-    return `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+    return `${hours.toString().padStart(2, "0")}:${minutes
+      .toString()
+      .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
   };
 
-  const [favorite, setFavorite] = useState(false);
-
-  const toggleFavorite = () => {
-    setFavorite(!favorite);
-  };
+  const { favorite, toggleFavorite } = useFavorite(false);
 
   return (
     <>
@@ -123,7 +130,7 @@ function MainPage() {
           alt="PilotPicture"
         />
         <div className="pilot-name">
-          <h1>{datasPilots && datasPilots[0]?.full_name} </h1>
+          <h1>{datasPilots && datasPilots[0]?.full_name}</h1>
         </div>
         <h2 className="inforace">
           📍 {datasMeetings && datasMeetings[0]?.meeting_name} <br />
@@ -158,11 +165,20 @@ function MainPage() {
             ? `Prochain Coins dans: ${formatTimeRemaining()}`
             : "Obtenir 200 Coins"}
         </button>
+        {/* Bouton "50 Coins" */}
+        <button
+          type="button"
+          className="buttonAddCoins"
+          onClick={handleAddCoins}
+        >
+          Ajouter 50 Coins
+        </button>
       </div>
 
       {/* Éléments supplémentaires */}
       <h3 className="hot">🔥HOT</h3>
       <div>
+        {/* Images pour les favoris */}
         <span
           className="favorite-icon"
           onClick={toggleFavorite}
@@ -175,31 +191,32 @@ function MainPage() {
             }
           }}
         >
-          {favorite ? (
-            <img
-              src="./src/assets/images/star.png"
-              className="stars"
-              alt="stars"
-            />
-          ) : (
-            <img
-              src="./src/assets/images/graystar.png"
-              className="graystars"
-              alt="Graystar"
-            />
-          )}
+          {/* Utilisation conditionnelle de l'image */}
+          <img
+            src={
+              favorite
+                ? "./src/assets/images/star.png"
+                : "./src/assets/images/graystar.png"
+            }
+            className={favorite ? "stars" : "graystars"}
+            alt={favorite ? "stars" : "Graystar"}
+          />
         </span>
       </div>
       {showPopup && (
         <div className="popup-overlay">
           <div className="popup">
-            <Bet />
-
             {/* Bouton pour fermer le pop-up */}
             <button type="button" onClick={togglePopup} className="closebutton">
               Fermer
             </button>
           </div>
+          {/* Passer coinBalance à UserCard */}
+          <UserCard coinBalance={coinBalance} />
+          <MainButton
+            coinBalance={coinBalance}
+            setCoinBalance={setCoinBalance}
+          />
         </div>
       )}
     </>
