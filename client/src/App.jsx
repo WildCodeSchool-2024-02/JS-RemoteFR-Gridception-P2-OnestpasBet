@@ -1,12 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Burger from "./components/burger/Burger";
 import Logo from "./components/logo/Logo";
 import UserCard from "./components/usercard/Usercard";
 import Carrousel from "./components/carrousel/Carrousel";
 import MainPage from "./components/main-page/MainPage";
 import MainButton from "./components/Buttonbet/mainbutton";
+import { ThemeContext } from "./contexts/ThemeContext";
 
 function App() {
+  const { theme } = useContext(ThemeContext);
+
   const initialCoinBalance = localStorage.getItem("coinBalance");
   const defaultCoinBalance = initialCoinBalance
     ? parseInt(initialCoinBalance, 10)
@@ -21,7 +24,7 @@ function App() {
   const shouldShowMainButton = false; // Mettez ici la condition pour afficher ou masquer MainButton
 
   return (
-    <>
+    <div className="app-container" data-theme={theme}>
       <header>
         <Burger />
         <Logo />
@@ -38,7 +41,7 @@ function App() {
           />
         )}
       </main>
-    </>
+    </div>
   );
 }
 

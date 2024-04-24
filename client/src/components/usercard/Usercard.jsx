@@ -36,8 +36,10 @@ function UserCard({ coinBalance }) {
           alt="Background"
         />
       </div>
-      <p className="nomuser">{user}</p>
-      <p>Computer ID: {computerId}</p>
+      <div className="usercard-details">
+        <p className="nomuser">{user}</p>
+        <p>Computer ID: {computerId}</p>
+      </div>
       <p>Coins: {coinBalance}</p>
     </div>
   );

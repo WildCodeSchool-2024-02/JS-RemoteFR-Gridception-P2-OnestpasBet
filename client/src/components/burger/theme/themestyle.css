@@ -1,0 +1,20 @@
+.drivers-container {
+  display: flex;
+  justify-content: space-around;
+
+  div {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 30%;
+    border: 2px solid black;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+}

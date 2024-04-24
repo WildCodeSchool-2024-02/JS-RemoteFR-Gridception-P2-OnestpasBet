@@ -1,11 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
 
+[data-theme="driverA"] {
+  --background-image: url("./src/assets/images/verstap-bg.png");
+}
+
+[data-theme="driverB"] {
+  --background-image: url("/src/assets/images/mercedesbg.jpg");
+}
+
+[data-theme="driverC"] {
+  --background-image: url("/src/assets/images/ferrari.jpg");
+}
+
 body {
-  background: url("https://images8.alphacoders.com/121/1215681.jpg");
-  background-size: cover;
-  width: 50rem;
-  height: auto;
   font-family: "Luckiest Guy";
+  margin: 0;
+}
+
+.app-container {
+  background-image: var(--background-image);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  background-position: center center;
 }
 
 /* AFFICHAGE PRINCIPAL */

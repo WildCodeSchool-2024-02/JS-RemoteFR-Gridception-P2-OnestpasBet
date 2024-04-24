@@ -3,7 +3,10 @@ import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+import { ThemeProvider } from "./contexts/ThemeContext";
+
 import App from "./App";
+
 import Credit from "./components/burger/credit/Credit";
 import Account from "./components/burger/account/Account";
 import Theme from "./components/burger/theme/Theme";
@@ -31,6 +34,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ThemeProvider>
+      <RouterProvider router={router} />
+    </ThemeProvider>
   </React.StrictMode>
 );
