@@ -19,12 +19,29 @@ function Carrousel() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://api.openf1.org/v1/drivers");
+        const response = await axios.get("https://api.openf1.org/v1/drivers?");
 
         setImages([
           response.data[0].headshot_url,
           response.data[1].headshot_url,
           response.data[2].headshot_url,
+          response.data[3].headshot_url,
+          response.data[4].headshot_url,
+          response.data[5].headshot_url,
+          response.data[6].headshot_url,
+          response.data[7].headshot_url,
+          response.data[20].headshot_url,
+          response.data[9].headshot_url,
+          response.data[10].headshot_url,
+          response.data[11].headshot_url,
+          response.data[12].headshot_url,
+          response.data[13].headshot_url,
+          response.data[14].headshot_url,
+          response.data[15].headshot_url,
+          response.data[16].headshot_url,
+          response.data[17].headshot_url,
+          response.data[18].headshot_url,
+          response.data[19].headshot_url,
         ]);
       } catch (error) {
         console.error("Error loading images:", error);
