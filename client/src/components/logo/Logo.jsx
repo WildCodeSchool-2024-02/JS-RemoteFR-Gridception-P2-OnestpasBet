@@ -1,3 +1,5 @@
+import "./logoStyle.css";
+
 function Logo() {
   return (
     <>

@@ -1,15 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
 
 [data-theme="driverA"] {
-  --background-image: url("./src/assets/images/verstap-bg.png");
-}
-
-[data-theme="driverB"] {
   --background-image: url("/src/assets/images/mercedesbg.jpg");
 }
 
-[data-theme="driverC"] {
+[data-theme="driverB"] {
   --background-image: url("/src/assets/images/ferrari.jpg");
+}
+
+[data-theme="driverC"] {
+  --background-image: url("./src/assets/images/bgverstap.jpeg");
 }
 
 body {
@@ -21,7 +21,7 @@ body {
   background-image: var(--background-image);
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 100vh;
+  min-height: 325vh;
   background-position: center center;
 }
 
@@ -31,7 +31,6 @@ body {
   border: 1rem solid white;
   border-radius: 50px;
   background: linear-gradient(to bottom, #6a534e, #f9f9f9);
-  margin: 0 0 0 7rem;
   border: 7px solid black;
   width: 40rem;
   height: 42rem;
@@ -40,8 +39,9 @@ body {
   flex-direction: column;
   align-items: center;
   position: relative;
-  left: 31rem;
-  bottom: -10rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
 }
 
 .pilot-name {
@@ -65,22 +65,28 @@ body {
   font-size: 2.3rem;
   font-weight: bolder;
   position: relative;
-  bottom: 34rem;
-  left: 19rem;
+  bottom: 45rem;
+  right: 15rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
   font-family: "Luckiest Guy";
 }
 
 .stars {
   position: relative;
-  bottom: 45rem;
-  left: 73rem;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 40rem;
+  left: 7rem;
 }
 
 .graystars {
   position: relative;
-  bottom: 49rem;
-  left: 70rem;
   width: 15rem;
+  bottom: 44rem;
+  left: 9rem;
 }
 
 :hover.stars {
@@ -146,11 +152,13 @@ h3 {
 /* BOUTONS */
 
 .buttonBet {
+  display: flex;
+  justify-content: center;
   background-color: red;
   color: white;
   font-size: 4rem;
   height: 7rem;
-  width: 18rem;
+  width: 20rem;
   border-radius: 20%;
   border: 0.5rem solid black;
   position: relative;
@@ -206,4 +214,19 @@ h4 {
   font-size: 3rem;
   border-radius: 10px;
   border: solid 1px white;
+}
+
+.buttonAddCoins {
+  background-color: black;
+  color: white;
+  font-family: "Luckiest Guy";
+  font-size: 2.5rem;
+  border-radius: 10px;
+  border: solid 1px white;
+  margin-top: 10px;
+}
+
+:hover.buttonAddCoins {
+  transform: scale(1.2);
+  cursor: pointer;
 }

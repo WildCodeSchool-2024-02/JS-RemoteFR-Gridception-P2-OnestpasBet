@@ -1,7 +1,9 @@
-body {
-  display: flex;
-  justify-content: center;
-  margin: 0;
+.apphr {
+  width: 80rem;
+  position: relative;
+  bottom: 6rem;
+  margin: auto;
+  border-color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
+  height: 1px;
 }
-
-/* POLICE : "LUCKIEST GUY" = @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap'); */

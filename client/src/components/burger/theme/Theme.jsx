@@ -16,16 +16,23 @@ function Theme() {
       <Burger />
 
       <section className="app-container" data-theme={theme}>
+        <div className="logo-item">
+          <img
+            src="./src/assets/images/main-logo.png"
+            alt="logo"
+            className="logo-item"
+          />
+        </div>
         <h1>THEME PAGE</h1>
         <div className="drivers-container">
-          <button onClick={() => setTheme("driverA")}>
-            <img src={driverA} alt="" />
+          <button type="button" onClick={() => setTheme("driverA")}>
+            <img src={driverA} alt="driverA" />
           </button>
-          <button onClick={() => setTheme("driverB")}>
-            <img src={driverB} alt="" />
+          <button type="button" onClick={() => setTheme("driverB")}>
+            <img src={driverB} alt="driver B" />
           </button>
-          <button onClick={() => setTheme("driverC")}>
-            <img src={driverC} alt="" />
+          <button type="button" onClick={() => setTheme("driverC")}>
+            <img src={driverC} alt="driverC" />
           </button>
         </div>
       </section>

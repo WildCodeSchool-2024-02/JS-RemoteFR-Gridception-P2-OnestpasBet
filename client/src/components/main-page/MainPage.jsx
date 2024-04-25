@@ -155,6 +155,30 @@ function MainPage({ coinBalance, setCoinBalance }) {
             <h4>NON</h4>
             <h4>Côte: 20</h4>
           </div>
+          <span
+            className="favorite-icon"
+            onClick={toggleFavorite}
+            role="button"
+            tabIndex={0}
+            aria-label={
+              favorite ? "Retirer des favoris" : "Ajouter aux favoris"
+            }
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                toggleFavorite();
+              }
+            }}
+          >
+            <img
+              src={
+                favorite
+                  ? "./src/assets/images/star.png"
+                  : "./src/assets/images/graystar.png"
+              }
+              className={favorite ? "stars" : "graystars"}
+              alt={favorite ? "stars" : "Graystar"}
+            />
+          </span>
         </div>
 
         <button type="button" className="buttonBet" onClick={togglePopup}>
@@ -177,35 +201,11 @@ function MainPage({ coinBalance, setCoinBalance }) {
           className="buttonAddCoins"
           onClick={handleAddCoins}
         >
-          Ajouter 50 Coins
+          Obtenir 50 Coins
         </button>
       </div>
 
       <h3 className="hot">🔥HOT</h3>
-      <div>
-        <span
-          className="favorite-icon"
-          onClick={toggleFavorite}
-          role="button"
-          tabIndex={0}
-          aria-label={favorite ? "Retirer des favoris" : "Ajouter aux favoris"}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              toggleFavorite();
-            }
-          }}
-        >
-          <img
-            src={
-              favorite
-                ? "./src/assets/images/star.png"
-                : "./src/assets/images/graystar.png"
-            }
-            className={favorite ? "stars" : "graystars"}
-            alt={favorite ? "stars" : "Graystar"}
-          />
-        </span>
-      </div>
       {showPopup && (
         <div className="popup-overlay">
           <div className="popup">

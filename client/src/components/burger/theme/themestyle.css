@@ -1,6 +1,7 @@
 .drivers-container {
   display: flex;
   justify-content: space-around;
+  color: white;
 
   div {
     width: 25%;
@@ -17,4 +18,9 @@
       object-fit: cover;
     }
   }
+}
+
+.logo-item {
+  display: flex;
+  justify-content: center;
 }

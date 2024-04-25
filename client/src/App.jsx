@@ -6,6 +6,7 @@ import Carrousel from "./components/carrousel/Carrousel";
 import MainPage from "./components/main-page/MainPage";
 import MainButton from "./components/Buttonbet/mainbutton";
 import { ThemeContext } from "./contexts/ThemeContext";
+import "./App.css";
 
 function App() {
   const { theme } = useContext(ThemeContext);
@@ -33,6 +34,7 @@ function App() {
 
       <main>
         <Carrousel />
+        <hr className="apphr" />
         <MainPage coinBalance={coinBalance} setCoinBalance={setCoinBalance} />
         {shouldShowMainButton && (
           <MainButton

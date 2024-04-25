@@ -1,5 +1,10 @@
 .main-logo {
   display: flex;
-  justify-content: center;
-  max-width: 100%;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
 }
