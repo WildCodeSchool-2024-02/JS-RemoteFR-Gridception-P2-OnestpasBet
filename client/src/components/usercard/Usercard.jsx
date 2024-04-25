@@ -1,29 +1,75 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import "./userCardStyle.css";
-
-// import { sha256 } from "js-sha256";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPencilAlt,
+  faArrowAltCircleDown,
+} from "@fortawesome/free-solid-svg-icons";
 
 function UserCard({ coinBalance }) {
   const [user, setUser] = useState("USER");
   const [computerId, setComputerId] = useState(null);
+  const [editing, setEditing] = useState(false);
+  const [newUsername, setNewUsername] = useState("");
+  const [usernameError, setUsernameError] = useState("");
+  const [isReduced, setIsReduced] = useState(false);
 
   useEffect(() => {
     const storedComputerId = localStorage.getItem("computerId");
     if (storedComputerId) {
-      setUser(`Guest${storedComputerId}`);
+      const storedUsername = localStorage.getItem(
+        `username_${storedComputerId}`
+      );
+      setUser(storedUsername || `Guest${storedComputerId}`);
       setComputerId(storedComputerId);
     } else {
       const newComputerId = Date.now() % 100;
-      const hashedComputerId = newComputerId.toString();
-      localStorage.setItem("computerId", hashedComputerId);
+      localStorage.setItem("computerId", newComputerId);
       setUser(`Guest${newComputerId}`);
-      setComputerId(hashedComputerId);
+      setComputerId(newComputerId);
     }
   }, []);
 
+  const handleEditClick = () => {
+    setEditing(true);
+    setNewUsername(user);
+    setUsernameError("");
+  };
+
+  const handleSaveClick = () => {
+    if (newUsername.length < 2) {
+      setUsernameError("Le pseudo doit comporter au moins 2 caractères.");
+    } else if (newUsername.length > 12) {
+      setUsernameError("Le pseudo ne doit pas dépasser 12 caractères.");
+    } else {
+      localStorage.setItem(`username_${computerId}`, newUsername);
+      setUser(newUsername);
+      setEditing(false);
+      setUsernameError("");
+    }
+  };
+
+  const handleCancelClick = () => {
+    setEditing(false);
+    setUsernameError("");
+  };
+
+  const handleToggleReduce = () => {
+    setIsReduced((prev) => !prev);
+  };
+
   return (
-    <div className="profilutilisateur">
+    <div className={`profilutilisateur ${isReduced ? "reduced" : ""}`}>
+      <button
+        type="button"
+        className="toggle-button"
+        onClick={handleToggleReduce}
+      >
+        {isReduced ? "Afficher" : "Réduire"}
+        <FontAwesomeIcon icon={faArrowAltCircleDown} className="arrow-icon" />
+      </button>
+
       <div className="avatar">
         <img
           className="imgavatar"
@@ -37,10 +83,57 @@ function UserCard({ coinBalance }) {
         />
       </div>
       <div className="usercard-details">
-        <p className="nomuser">{user}</p>
-        <p>Computer ID: {computerId}</p>
+        <div className="username-container">
+          {editing ? (
+            <>
+              <input
+                type="text"
+                value={newUsername}
+                onChange={(e) => setNewUsername(e.target.value)}
+              />
+              <div className="button-container">
+                <button
+                  type="button"
+                  onClick={handleSaveClick}
+                  className="save"
+                >
+                  Save
+                </button>
+                <button
+                  type="button"
+                  onClick={handleCancelClick}
+                  className="cancel"
+                >
+                  Cancel
+                </button>
+              </div>
+              {usernameError && (
+                <p className="error-message">{usernameError}</p>
+              )}
+            </>
+          ) : (
+            <>
+              <span className="nomuser">{user}</span>
+              <FontAwesomeIcon
+                icon={faPencilAlt}
+                className="edit-icon"
+                onClick={handleEditClick}
+              />
+            </>
+          )}
+        </div>
+        <hr className="userhr" />
+        <p className="computerid">Computer ID: {computerId}</p>
       </div>
-      <p>Coins: {coinBalance}</p>
+      <hr className="userhr2" />
+      <p className="affichecoin">
+        <img
+          src="./src/assets/images/coins.png"
+          alt="coins"
+          className="coinpng"
+        />{" "}
+        {coinBalance}
+      </p>
     </div>
   );
 }

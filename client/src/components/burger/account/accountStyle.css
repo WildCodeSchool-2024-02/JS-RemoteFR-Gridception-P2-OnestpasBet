@@ -1,6 +1,7 @@
 .logo-account {
   display: flex;
   justify-content: center;
+  background-color: black;
 }
 
 .error {
@@ -8,4 +9,9 @@
   justify-content: center;
   background-color: white;
   opacity: 80%;
+  margin-bottom: 5rem;
+}
+
+.credit {
+  background-color: black;
 }

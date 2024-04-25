@@ -5,10 +5,6 @@ function Credit() {
   return (
     <>
       <Burger />
-      <div className="credit">
-        <h1>L'EQUIPE OnestpasBET</h1>
-      </div>
-
       <div className="credit-item">
         <img
           className="nicolas-img"
