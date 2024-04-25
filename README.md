@@ -92,7 +92,6 @@ Then, go on your specific project and run  `docker compose logs -t -f`.
 
 Commande à faire avant de commit !
 
-npx prettier . --write
 git add .
 git restore --staged docker-compose.yml
 git restore --staged .github/workflows/remove.yml
