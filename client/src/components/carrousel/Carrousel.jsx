@@ -30,7 +30,7 @@ function Carrousel() {
           response.data[5].headshot_url,
           response.data[6].headshot_url,
           response.data[7].headshot_url,
-          response.data[20].headshot_url,
+          response.data[32].headshot_url,
           response.data[9].headshot_url,
           response.data[10].headshot_url,
           response.data[11].headshot_url,
@@ -39,9 +39,8 @@ function Carrousel() {
           response.data[14].headshot_url,
           response.data[15].headshot_url,
           response.data[16].headshot_url,
-          response.data[17].headshot_url,
-          response.data[18].headshot_url,
-          response.data[19].headshot_url,
+          response.data[60].headshot_url,
+          response.data[64].headshot_url,
         ]);
       } catch (error) {
         console.error("Error loading images:", error);
