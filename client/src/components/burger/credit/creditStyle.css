@@ -1,12 +1,34 @@
 .credit {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   color: white;
 }
 
-h3 {
+.credit-item {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 10vh;
+  margin-right: 20px;
+  margin-bottom: -100px;
+}
+
+.credit-item img {
+  width: 200px;
+  height: auto;
+}
+
+.credit-item .nicolas-img {
+  width: 400px;
+}
+.credit-item .nicolas-title {
+  margin-top: 10px;
+}
+
+.credit-item .hamid-img {
+  padding-top: 30px;
+  width: 250px;
+}
+
+.credit-item .hamid-title {
+  margin-top: 110px;
 }
