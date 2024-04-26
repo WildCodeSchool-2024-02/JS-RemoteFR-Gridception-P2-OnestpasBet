@@ -1,0 +1,189 @@
+.bgavatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 100px;
+  border: 2px solid black;
+}
+
+.toggle-button {
+  color: white;
+  display: flex;
+  gap: 5px;
+  z-index: 2;
+}
+
+.toggle-button {
+  background-color: #000000;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  margin: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.toggle-button.show-content .arrow-icon {
+  transform: rotate(180deg);
+}
+
+.avatar {
+  display: flex;
+  padding: 20px;
+  position: relative;
+  right: 10.8rem;
+}
+
+.imgavatar {
+  position: relative;
+  left: 239px;
+  user-select: none;
+}
+
+.profilutilisateur {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: linear-gradient(to bottom, #363434, black);
+  border: 3px solid;
+  border-image: linear-gradient(to bottom, #6c6767, #aaa1a1) 1;
+  border-image-slice: 1;
+  width: 15rem;
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  z-index: 1;
+  transition: height 0.3s ease;
+  overflow: hidden;
+}
+
+.reduced {
+  height: 50px;
+}
+
+.profilutilisateur.reduced {
+  height: 100px;
+}
+
+.nomuser {
+  color: rgb(255, 255, 255);
+  font-size: 24px;
+  position: relative;
+  bottom: 3rem;
+  font-size: 2.5rem;
+}
+
+.username-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.usercard-details p {
+  color: white;
+  user-select: none;
+}
+
+.usercard-details {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.edit-icon {
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+  left: 5rem;
+  bottom: 6rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.edit-icon:hover {
+  transform: scale(1.1);
+}
+
+.affichecoin {
+  color: white;
+}
+
+input[type="text"] {
+  width: 200px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #000000;
+  background-color: #aaa1a1;
+  position: relative;
+  bottom: 3rem;
+}
+
+.save,
+.cancel {
+  padding: 8px 16px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  position: relative;
+  bottom: 3rem;
+}
+
+.save:hover {
+  background-color: #0056b3;
+}
+
+.cancel:hover {
+  background-color: #0056b3;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0 0 0;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.userhr {
+  width: 10rem;
+  position: relative;
+  bottom: 3rem;
+}
+
+.computerid {
+  position: relative;
+  bottom: 40px;
+  font-size: 20px;
+}
+
+.coinpng {
+  width: 50px;
+  height: auto;
+}
+
+.affichecoin {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 12px;
+  font-size: 1.5rem;
+  position: relative;
+  bottom: 25px;
+}
+
+.userhr2 {
+  width: 10rem;
+  position: relative;
+  bottom: 2rem;
+}
