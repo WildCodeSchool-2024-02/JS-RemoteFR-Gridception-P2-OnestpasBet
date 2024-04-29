@@ -12,19 +12,23 @@ function Burger() {
           alt="logo"
           className="logo-item"
         />
-        <hr />
-        <Link to="/" className="menu-item">
-          Accueil
-        </Link>
-        <Link to="/account" className="menu-item">
-          Mon compte
-        </Link>
-        <Link to="/theme" className="menu-item">
-          Thèmes
-        </Link>
-        <Link to="/credit" className="menu-item">
-          Crédit
-        </Link>
+        <div className="burgercontainer">
+          <hr className="hrburger" />
+
+          <Link to="/" className="accueilitem">
+            Accueil
+          </Link>
+
+          <Link to="/account" className="menu-item">
+            Mon compte
+          </Link>
+          <Link to="/theme" className="menu-item">
+            Thèmes
+          </Link>
+          <Link to="/credit" className="menu-item">
+            Crédit
+          </Link>
+        </div>
       </>
     </Menu>
   );

@@ -5,16 +5,17 @@
   max-height: 550px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #fff;
+  background-color: #494949;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   position: relative;
+  z-index: 30;
 }
 
 .titlepop {
   margin: 0;
   text-align: center;
-  color: #333;
+  color: #c5c5c5;
 }
 
 .bet-container {
@@ -28,7 +29,7 @@
   width: 200px;
   padding: 10px;
   margin: 10px;
-  background-color: #333;
+  background-color: rgb(34, 34, 34);
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
@@ -39,7 +40,6 @@
 }
 
 .name {
-  font-weight: bold;
   margin-bottom: 5px;
 }
 
@@ -60,6 +60,10 @@
   flex-direction: column;
 }
 
+.popup-orverlay {
+  z-index: 30;
+}
+
 .popupbet,
 .up,
 .down,
@@ -67,16 +71,23 @@
 .montantbutton {
   padding: 8px 16px;
   margin: 0 5px;
-  border: none;
+  border: solid black 3px;
   border-radius: 3px;
   cursor: pointer;
   font-family: "Luckiest Guy";
   font-size: 20px;
 }
 
+.montantbutton {
+  margin: 6px 0 0 0;
+  color: white;
+  border-color: white;
+}
+
 .popupbet {
   position: relative;
   top: -25px;
+  color: white;
 }
 
 .up {
@@ -111,14 +122,14 @@
 
 .logo p {
   font-size: 24px;
-  font-weight: bold;
-  color: #333;
+  color: #b8b8b8;
 }
 
 .options {
   display: flex;
   justify-content: space-around;
   margin-top: 20px;
+  color: #bdbdbd;
 }
 
 .options > div {
@@ -133,25 +144,35 @@
 }
 
 .popupbet:hover {
-  background-color: #0056b3;
+  background-color: #252424;
 }
 
 .up:hover {
-  background-color: #0056b3;
+  background-color: #6e8094;
 }
 
 .down:hover {
-  background-color: #0056b3;
+  background-color: #1f4c80;
 }
 
 .closebutton:hover {
-  background-color: #0056b3;
+  background-color: #aa0d0d;
 }
 
 .montantbutton:hover {
-  background-color: #0056b3;
+  background-color: #4b4a4a;
 }
 
 .coinbalance {
   color: rgb(0, 0, 0);
+}
+
+.bet-confirmation {
+  display: flex;
+  justify-content: center;
+  color: green;
+}
+
+.popupbet {
+  background-color: red;
 }

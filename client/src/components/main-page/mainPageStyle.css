@@ -78,15 +78,17 @@ body {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  bottom: 40rem;
-  left: 7rem;
+  left: 75rem;
+  top: 5rem;
+  z-index: 20;
 }
 
 .graystars {
   position: relative;
-  width: 15rem;
-  bottom: 44rem;
-  left: 9rem;
+  width: 20rem;
+  left: 70rem;
+  top: 10rem;
+  z-index: 20;
 }
 
 :hover.stars {
@@ -97,6 +99,23 @@ body {
 :hover.graystars {
   transform: scale(1.2);
   cursor: pointer;
+}
+
+.popup-overlay {
+  z-index: 30;
+}
+
+.closebutton {
+  left: 500px;
+  bottom: 43rem;
+  position: fixed;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+:hover.closebutton {
+  transform: scale(1.1);
 }
 
 h1 {
@@ -139,14 +158,14 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
 }
 
 .info-no {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
 }
 
 /* BOUTONS */
@@ -163,6 +182,9 @@ h3 {
   border: 0.5rem solid black;
   position: relative;
   bottom: 7rem;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
   font-family: "Luckiest guy";
 }
 
@@ -171,22 +193,12 @@ h3 {
   cursor: pointer;
 }
 
-.popup {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  max-width: 80%;
-  text-align: center;
-  opacity: 90%;
-}
-
 .popup button {
   margin-top: 20px;
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
-  background-color: #007bff;
+  background-color: #e94034;
   color: white;
   cursor: pointer;
 }

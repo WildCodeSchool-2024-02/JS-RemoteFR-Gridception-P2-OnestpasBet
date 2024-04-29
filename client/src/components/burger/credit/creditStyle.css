@@ -1,8 +1,10 @@
-.credit {
+.credit-item {
   display: flex;
   justify-content: center;
-  color: white;
   background-color: black;
+  -webkit-text-stroke: 1px rgb(255, 255, 255);
+  font-weight: bolder;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .credit-item {
@@ -41,4 +43,10 @@
 .logo-item {
   display: flex;
   justify-content: center;
+}
+
+.nicolas-title {
+  -webkit-text-stroke: 1px rgb(255, 255, 255);
+  font-weight: bolder;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }

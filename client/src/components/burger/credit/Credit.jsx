@@ -6,6 +6,7 @@ function Credit() {
     <>
       <Burger />
       <div className="credit-item">
+        <h1>L'équipe OnestpasBet</h1>
         <img
           className="nicolas-img"
           src="./src/assets/images/Nicolas.png"
