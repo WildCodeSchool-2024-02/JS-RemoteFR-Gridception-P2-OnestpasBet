@@ -60,18 +60,18 @@ function Carrousel() {
     <div className="carrousel">
       <div className="carrousel-block">
         <div className="carrousel-pilots">
-          <p>Pilotes 2024</p>
+          <p className="namepilot">Pilotes 2024</p>
           <img src={images[currentIndex]} alt="Pilote1" />
         </div>
 
         <div className="carrousel-button left">
           <button type="button" onClick={handleClickPrevious}>
-            <img src={flecheGauche} alt="précèdent" />
+            <img src={flecheGauche} alt="précèdent" className="fleche" />
           </button>
         </div>
         <div className="carrousel-button right">
           <button type="button" onClick={handleClickNext}>
-            <img src={flecheDroite} alt="suivant" />
+            <img src={flecheDroite} alt="suivant" className="fleche" />
           </button>
         </div>
       </div>

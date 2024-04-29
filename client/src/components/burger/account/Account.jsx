@@ -8,7 +8,13 @@ function Account() {
     <div>
       <Burger />
       <div className="logo-account">
-        <img src="./src/assets/images/main-logo.png" alt="logo" />
+        <Link to="/" className="return">
+          <img
+            src="./src/assets/images/main-logo.png"
+            alt="logo"
+            className="logo-item"
+          />
+        </Link>
       </div>
       <div className="error">
         <img

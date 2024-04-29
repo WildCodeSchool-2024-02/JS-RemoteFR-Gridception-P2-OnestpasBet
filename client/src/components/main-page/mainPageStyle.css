@@ -78,17 +78,20 @@ body {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  left: 75rem;
-  top: 5rem;
+  left: 72rem;
+  top: 7rem;
   z-index: 20;
+  width: 200px;
 }
 
 .graystars {
   position: relative;
-  width: 20rem;
-  left: 70rem;
-  top: 10rem;
+  margin-left: auto;
+  margin-right: auto;
+  left: 72rem;
+  top: 7rem;
   z-index: 20;
+  width: 200px;
 }
 
 :hover.stars {
@@ -151,7 +154,7 @@ h3 {
   position: relative;
   bottom: 115px;
   border-radius: 0% 0% 20% 20%;
-  background-color: green;
+  background-color: rgb(119, 119, 119);
 }
 
 .info-yes {
@@ -178,7 +181,7 @@ h3 {
   font-size: 4rem;
   height: 7rem;
   width: 20rem;
-  border-radius: 20%;
+  border-radius: 50px;
   border: 0.5rem solid black;
   position: relative;
   bottom: 7rem;
@@ -226,6 +229,11 @@ h4 {
   font-size: 3rem;
   border-radius: 10px;
   border: solid 1px white;
+  cursor: pointer;
+}
+
+.buttonClaim:hover {
+  transform: scale(1.1);
 }
 
 .buttonAddCoins {

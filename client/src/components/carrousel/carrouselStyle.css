@@ -46,3 +46,15 @@ button {
 .carrousel-button.right {
   transform: translateX(-50%) translateX(120%);
 }
+
+.fleche {
+  cursor: pointer;
+}
+
+.fleche:hover {
+  transform: scale(1.1);
+}
+
+.namepilot {
+  color: white;
+}
