@@ -17,6 +17,7 @@
   font-weight: bolder;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   margin: 0;
+  margin-bottom: 4rem;
 }
 
 .drivers-container img {
@@ -49,7 +50,7 @@
   align-items: center;
   justify-content: center;
   background-color: gray;
-  opacity: 0.7;
+  opacity: 0.9;
   border-radius: 100rem;
   width: 35rem;
   height: 35rem;
@@ -61,7 +62,7 @@
   align-items: center;
   justify-content: center;
   background-color: gray;
-  opacity: 0.8;
+  opacity: 0.9;
   border-radius: 100rem;
   width: 35rem;
   height: 35rem;
@@ -74,7 +75,7 @@
   align-items: center;
   justify-content: center;
   background-color: gray;
-  opacity: 0.7;
+  opacity: 0.9;
   border-radius: 100rem;
   width: 35rem;
   height: 35rem;
