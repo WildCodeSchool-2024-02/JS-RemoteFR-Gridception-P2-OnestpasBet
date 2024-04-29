@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import Burger from "../Burger";
+
 import "./accountStyle.css";
 
 function Account() {
@@ -15,6 +17,10 @@ function Account() {
           height="500 px"
         />
       </div>
+      <h1>Désolé cette page est introuvable !</h1>
+      <Link to="/" className="return">
+        Retour à l'accueil
+      </Link>
     </div>
   );
 }
