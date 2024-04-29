@@ -21,7 +21,7 @@ function Footer({ pilots, onBetConfirmation, calcBet }) {
   return (
     <div className="submit">
       <div className="logo">
-        <p>VOTRE PARIS</p>
+        <p className="paristext">VOTRE PARIS</p>
       </div>
       <div className="options">
         <div>
