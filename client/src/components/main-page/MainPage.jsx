@@ -101,11 +101,6 @@ function MainPage({ coinBalance, setCoinBalance }) {
     setShowPopup(!showPopup);
   };
 
-  const handleAddCoins = () => {
-    // Fonction pour ajouter 50 pièces
-    updateCoins(50);
-  };
-
   const formatTimeRemaining = () => {
     if (!nextClaimTime) return "00:00:00";
 
@@ -144,8 +139,8 @@ function MainPage({ coinBalance, setCoinBalance }) {
         <img
           src={
             favorite
-              ? "./src/assets/images/star.png"
-              : "./src/assets/images/graystar.png"
+              ? "./src/assets/images/etoilejaune.png"
+              : "./src/assets/images/etoilegrise.png"
           }
           className={favorite ? "stars" : "graystars"}
           alt={favorite ? "stars" : "Graystar"}
@@ -170,11 +165,11 @@ function MainPage({ coinBalance, setCoinBalance }) {
         <h3>VA T'IL REMPORTER LA COURSE?</h3>
         <div className="info-cote">
           <div className="info-yes">
-            <h4>OUI</h4>
+            <h4>OUI ✅</h4>
             <h4>Côte: 10</h4>
           </div>
           <div className="info-no">
-            <h4>NON</h4>
+            <h4>NON ❌</h4>
             <h4>Côte: 20</h4>
           </div>
         </div>
@@ -192,14 +187,6 @@ function MainPage({ coinBalance, setCoinBalance }) {
           {nextClaimTime !== null
             ? `Prochain Coins dans: ${formatTimeRemaining()}`
             : "Obtenir 200 Coins"}
-        </button>
-
-        <button
-          type="button"
-          className="buttonAddCoins"
-          onClick={handleAddCoins}
-        >
-          Obtenir 50 Coins
         </button>
       </div>
 

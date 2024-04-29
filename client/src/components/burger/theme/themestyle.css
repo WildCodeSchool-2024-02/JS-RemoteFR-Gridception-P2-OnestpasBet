@@ -1,26 +1,96 @@
 .drivers-container {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
   color: white;
-
-  div {
-    width: 25%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    border-radius: 30%;
-    border: 2px solid black;
-
-    img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
-  }
 }
 
 .logo-item {
   display: flex;
   justify-content: center;
+}
+
+.title_theme {
+  display: flex;
+  justify-content: center;
+  -webkit-text-stroke: 1px rgb(255, 255, 255);
+  font-weight: bolder;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin: 0;
+  margin-bottom: 4rem;
+}
+
+.drivers-container img {
+  display: flex;
+  justify-content: center;
+}
+
+.halmiltonButton {
+  width: 45rem;
+  height: auto;
+  cursor: pointer;
+  position: relative;
+  left: 9px;
+}
+
+.leclercButton {
+  width: 25rem;
+  height: auto;
+  cursor: pointer;
+}
+
+.angieButton {
+  width: 25rem;
+  height: auto;
+  cursor: pointer;
+}
+
+.buttonhamilton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: gray;
+  opacity: 0.9;
+  border-radius: 100rem;
+  width: 35rem;
+  height: 35rem;
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.buttonleclerc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: gray;
+  opacity: 0.9;
+  border-radius: 100rem;
+  width: 35rem;
+  height: 35rem;
+  margin-top: 5rem;
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.buttonangie {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: gray;
+  opacity: 0.9;
+  border-radius: 100rem;
+  width: 35rem;
+  height: 35rem;
+  margin-top: 5rem;
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.halmiltonButton:hover {
+  transform: scale(1.1);
+}
+
+.leclercButton:hover {
+  transform: scale(1.1);
+}
+
+.angieButton:hover {
+  transform: scale(1.1);
 }

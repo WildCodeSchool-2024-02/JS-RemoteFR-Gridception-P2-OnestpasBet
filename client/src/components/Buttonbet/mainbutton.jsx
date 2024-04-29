@@ -74,7 +74,7 @@ function MainButton({ coinBalance, setCoinBalance }) {
       />
 
       {showConfirmation && (
-        <div className="bet-confirmation">Votre pari a été validé !</div>
+        <div className="bet-confirmation">Votre pari a été validé ! ✅</div>
       )}
     </div>
   );

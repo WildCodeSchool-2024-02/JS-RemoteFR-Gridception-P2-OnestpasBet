@@ -15,7 +15,7 @@
 .titlepop {
   margin: 0;
   text-align: center;
-  color: #c5c5c5;
+  color: white;
 }
 
 .bet-container {
@@ -32,7 +32,6 @@
   background-color: rgb(34, 34, 34);
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,7 +63,6 @@
   z-index: 30;
 }
 
-.popupbet,
 .up,
 .down,
 .closebutton,
@@ -82,12 +80,20 @@
   margin: 6px 0 0 0;
   color: white;
   border-color: white;
+  background-color: green;
 }
 
 .popupbet {
+  padding: 8px 16px;
+  margin: 0 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: "Luckiest Guy";
+  font-size: 25px;
   position: relative;
   top: -25px;
   color: white;
+  background-color: #e94034;
 }
 
 .up {
@@ -102,7 +108,6 @@
 
 .amount {
   font-size: 16px;
-  font-weight: bold;
 }
 
 .submit {
@@ -122,14 +127,14 @@
 
 .logo p {
   font-size: 24px;
-  color: #b8b8b8;
+  color: white;
 }
 
 .options {
   display: flex;
   justify-content: space-around;
   margin-top: 20px;
-  color: #bdbdbd;
+  color: white;
 }
 
 .options > div {
@@ -139,7 +144,6 @@
 .total,
 .max {
   font-size: 18px;
-  font-weight: bold;
   margin-top: 5px;
 }
 
@@ -170,9 +174,6 @@
 .bet-confirmation {
   display: flex;
   justify-content: center;
-  color: green;
-}
-
-.popupbet {
-  background-color: red;
+  color: white;
+  -webkit-text-stroke: 1px green;
 }
