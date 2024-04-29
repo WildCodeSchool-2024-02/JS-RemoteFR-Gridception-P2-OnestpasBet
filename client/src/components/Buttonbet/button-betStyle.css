@@ -174,5 +174,6 @@
 .bet-confirmation {
   display: flex;
   justify-content: center;
-  color: green;
+  color: white;
+  -webkit-text-stroke: 1px green;
 }
