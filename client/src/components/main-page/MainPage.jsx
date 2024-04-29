@@ -101,11 +101,6 @@ function MainPage({ coinBalance, setCoinBalance }) {
     setShowPopup(!showPopup);
   };
 
-  const handleAddCoins = () => {
-    // Fonction pour ajouter 50 pièces
-    updateCoins(50);
-  };
-
   const formatTimeRemaining = () => {
     if (!nextClaimTime) return "00:00:00";
 
@@ -129,6 +124,28 @@ function MainPage({ coinBalance, setCoinBalance }) {
 
   return (
     <>
+      <span
+        className="favorite-icon"
+        onClick={toggleFavorite}
+        role="button"
+        tabIndex={0}
+        aria-label={favorite ? "Retirer des favoris" : "Ajouter aux favoris"}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            toggleFavorite();
+          }
+        }}
+      >
+        <img
+          src={
+            favorite
+              ? "./src/assets/images/etoilejaune.png"
+              : "./src/assets/images/etoilegrise.png"
+          }
+          className={favorite ? "stars" : "graystars"}
+          alt={favorite ? "stars" : "Graystar"}
+        />
+      </span>
       <div className="main-window">
         <img
           src={datasPilots && datasPilots[0]?.headshot_url}
@@ -148,37 +165,13 @@ function MainPage({ coinBalance, setCoinBalance }) {
         <h3>VA T'IL REMPORTER LA COURSE?</h3>
         <div className="info-cote">
           <div className="info-yes">
-            <h4>OUI</h4>
+            <h4>OUI ✅</h4>
             <h4>Côte: 10</h4>
           </div>
           <div className="info-no">
-            <h4>NON</h4>
+            <h4>NON ❌</h4>
             <h4>Côte: 20</h4>
           </div>
-          <span
-            className="favorite-icon"
-            onClick={toggleFavorite}
-            role="button"
-            tabIndex={0}
-            aria-label={
-              favorite ? "Retirer des favoris" : "Ajouter aux favoris"
-            }
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                toggleFavorite();
-              }
-            }}
-          >
-            <img
-              src={
-                favorite
-                  ? "./src/assets/images/star.png"
-                  : "./src/assets/images/graystar.png"
-              }
-              className={favorite ? "stars" : "graystars"}
-              alt={favorite ? "stars" : "Graystar"}
-            />
-          </span>
         </div>
 
         <button type="button" className="buttonBet" onClick={togglePopup}>
@@ -194,14 +187,6 @@ function MainPage({ coinBalance, setCoinBalance }) {
           {nextClaimTime !== null
             ? `Prochain Coins dans: ${formatTimeRemaining()}`
             : "Obtenir 200 Coins"}
-        </button>
-
-        <button
-          type="button"
-          className="buttonAddCoins"
-          onClick={handleAddCoins}
-        >
-          Obtenir 50 Coins
         </button>
       </div>
 

@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import Burger from "../Burger";
+
 import "./accountStyle.css";
 
 function Account() {
@@ -6,7 +8,13 @@ function Account() {
     <div>
       <Burger />
       <div className="logo-account">
-        <img src="./src/assets/images/main-logo.png" alt="logo" />
+        <Link to="/" className="return">
+          <img
+            src="./src/assets/images/main-logo.png"
+            alt="logo"
+            className="logo-item"
+          />
+        </Link>
       </div>
       <div className="error">
         <img
@@ -15,6 +23,10 @@ function Account() {
           height="500 px"
         />
       </div>
+      <h1>Désolé cette page est introuvable !</h1>
+      <Link to="/" className="return">
+        Retour à l'accueil
+      </Link>
     </div>
   );
 }

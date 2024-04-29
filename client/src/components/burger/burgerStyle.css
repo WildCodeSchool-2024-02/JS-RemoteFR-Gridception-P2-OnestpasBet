@@ -29,6 +29,21 @@
   background: white;
 }
 
+.accueilitem {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+}
+
+.hrburger {
+  width: 200px;
+  align-items: center;
+  position: relative;
+  right: 26px;
+}
+
 /*
   Sidebar wrapper styles
   Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
@@ -64,4 +79,12 @@ a:hover {
   justify-content: center;
   max-width: 100%;
   height: auto;
+}
+
+.burgercontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0px;
 }

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./creditStyle.css";
 import Burger from "../Burger";
 
@@ -5,7 +6,17 @@ function Credit() {
   return (
     <>
       <Burger />
+      <div className="logo-account">
+        <Link to="/" className="return">
+          <img
+            src="./src/assets/images/main-logo.png"
+            alt="logo"
+            className="logo-item"
+          />
+        </Link>
+      </div>
       <div className="credit-item">
+        <h1>L'équipe OnestpasBet</h1>
         <img
           className="nicolas-img"
           src="./src/assets/images/Nicolas.png"
