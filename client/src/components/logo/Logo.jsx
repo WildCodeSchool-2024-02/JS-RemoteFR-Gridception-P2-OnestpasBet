@@ -4,7 +4,7 @@ import f1Sound from "./sound/F1sound.mp3";
 function Logo() {
   const playF1Sound = () => {
     const audio = new Audio(f1Sound);
-    audio.volume = 0.3;
+    audio.volume = 0.02;
     audio.play();
   };
 
