@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import Burger from "../Burger";
 
+import error from "../../../assets/images/error404.png";
+import logo from "../../../assets/images/main-logo.png";
+
 import "./accountStyle.css";
 
 function Account() {
@@ -9,19 +12,11 @@ function Account() {
       <Burger />
       <div className="logo-account">
         <Link to="/" className="return">
-          <img
-            src="./src/assets/images/main-logo.png"
-            alt="logo"
-            className="logo-item"
-          />
+          <img src={logo} alt="logo" className="logo-item" />
         </Link>
       </div>
       <div className="error">
-        <img
-          src="./src/assets/images/error404.png"
-          alt="error"
-          height="500 px"
-        />
+        <img src={error} alt="error" height="500 px" />
       </div>
       <h1>Désolé cette page est introuvable !</h1>
       <Link to="/" className="return">

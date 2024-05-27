@@ -1,19 +1,11 @@
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 import axios from "axios";
+
 import "./mainPageStyle.css";
+
 import MainButton from "../Buttonbet/mainbutton";
 import UserCard from "../usercard/Usercard";
-
-function useFavorite(initialState = false) {
-  const [favorite, setFavorite] = useState(initialState);
-
-  const toggleFavorite = () => {
-    setFavorite((prevFavorite) => !prevFavorite);
-  };
-
-  return { favorite, toggleFavorite };
-}
 
 function MainPage({ coinBalance, setCoinBalance }) {
   const [datasPilots, setDatasPilots] = useState({});
@@ -120,32 +112,8 @@ function MainPage({ coinBalance, setCoinBalance }) {
       .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
   };
 
-  const { favorite, toggleFavorite } = useFavorite(false);
-
   return (
     <>
-      <span
-        className="favorite-icon"
-        onClick={toggleFavorite}
-        role="button"
-        tabIndex={0}
-        aria-label={favorite ? "Retirer des favoris" : "Ajouter aux favoris"}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            toggleFavorite();
-          }
-        }}
-      >
-        <img
-          src={
-            favorite
-              ? "./src/assets/images/etoilejaune.png"
-              : "./src/assets/images/etoilegrise.png"
-          }
-          className={favorite ? "stars" : "graystars"}
-          alt={favorite ? "stars" : "Graystar"}
-        />
-      </span>
       <div className="main-window">
         <img
           src={datasPilots && datasPilots[0]?.headshot_url}
