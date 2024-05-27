@@ -7,6 +7,10 @@ import {
   faArrowAltCircleDown,
 } from "@fortawesome/free-solid-svg-icons";
 
+import avatar from "../../assets/images/avatar.png";
+import bgavatar from "../../assets/images/bgavatar.png";
+import coin from "../../assets/images/coins.png";
+
 function UserCard({ coinBalance }) {
   const [user, setUser] = useState("USER");
   const [computerId, setComputerId] = useState(null);
@@ -71,16 +75,8 @@ function UserCard({ coinBalance }) {
       </button>
 
       <div className="avatar">
-        <img
-          className="imgavatar"
-          src="./src/assets/images/avatar.png"
-          alt="Avatar"
-        />
-        <img
-          className="bgavatar"
-          src="./src/assets/images/bgavatar.png"
-          alt="Background"
-        />
+        <img className="imgavatar" src={avatar} alt="Avatar" />
+        <img className="bgavatar" src={bgavatar} alt="Background" />
       </div>
       <div className="usercard-details">
         <div className="username-container">
@@ -127,12 +123,7 @@ function UserCard({ coinBalance }) {
       </div>
       <hr className="userhr2" />
       <p className="affichecoin">
-        <img
-          src="./src/assets/images/coins.png"
-          alt="coins"
-          className="coinpng"
-        />{" "}
-        {coinBalance}
+        <img src={coin} alt="coins" className="coinpng" /> {coinBalance}
       </p>
     </div>
   );

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { ThemeContext } from "../../../contexts/ThemeContext";
 
+import logo from "../../../assets/images/main-logo.png";
 import driverA from "../../../assets/images/hamilton.png";
 import driverB from "../../../assets/images/leclerc.png";
 import driverC from "../../../assets/images/Angelina.png";
@@ -19,11 +20,7 @@ function Theme() {
       <section className="app-container" data-theme={theme}>
         <div className="logo-item">
           <Link to="/" className="return">
-            <img
-              src="./src/assets/images/main-logo.png"
-              alt="logo"
-              className="logo-item"
-            />
+            <img src={logo} alt="logo" className="logo-item" />
           </Link>
         </div>
         <h1 className="title_theme">CHOISIR UN THEME:</h1>
