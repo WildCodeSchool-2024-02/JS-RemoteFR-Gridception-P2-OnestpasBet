@@ -1,17 +1,14 @@
 import { slide as Menu } from "react-burger-menu";
 import { Link } from "react-router-dom";
 
+import logo from "../../assets/images/main-logo.png";
 import "./burgerStyle.css";
 
 function Burger() {
   return (
     <Menu>
       <>
-        <img
-          src="./src/assets/images/main-logo.png"
-          alt="logo"
-          className="logo-item"
-        />
+        <img src={logo} alt="logo" className="logo-item" />
         <div className="burgercontainer">
           <hr className="hrburger" />
 

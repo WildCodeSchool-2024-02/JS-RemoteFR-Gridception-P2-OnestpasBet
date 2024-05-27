@@ -1,17 +1,18 @@
 import "./logoStyle.css";
 import f1Sound from "./sound/F1sound.mp3";
+import logo from "../../assets/images/main-logo.png";
 
 function Logo() {
   const playF1Sound = () => {
     const audio = new Audio(f1Sound);
-    audio.volume = 0.3;
+    audio.volume = 0.02;
     audio.play();
   };
 
   return (
     <img
       className="main-logo"
-      src="./src/assets/images/main-logo.png"
+      src={logo}
       alt="logomain"
       role="presentation"
       aria-hidden="true"
